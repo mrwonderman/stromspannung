@@ -1,7 +1,7 @@
 Strom und Spannung
 =============
-
-Diese Applikation sollte einem bei grundlegenden Berechnungen zu Strom und Spannung unterstützen. Folgende Teil sind integriert:
+![square image](https://googledrive.com/host/0BwESwPCuXtw7YzdZajJMYUJqTjg/header.jpg)
+Diese Applikation sollte einem bei grundlegenden Berechnungen zu Strom und Spannung unterstützen. Folgende Teile sind integriert:
 
 * Strom / Spannung / Widerstand
 * Berechnung von Ersatzwiderständen
