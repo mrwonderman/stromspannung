@@ -11,3 +11,6 @@ Diese Applikation sollte einem bei grundlegenden Berechnungen zu Strom und Spann
   <img alt="Android app on Google Play"
        src="https://developer.android.com/images/brand/de_app_rgb_wo_60.png" />
 </a>
+
+##Roadmap
+![roadmap](https://googledrive.com/host/0BwESwPCuXtw7YzdZajJMYUJqTjg/roadmap.png)
