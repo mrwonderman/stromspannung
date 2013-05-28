@@ -51,6 +51,7 @@ public class WiderstandElLeiter extends Fragment {
 					int arg2, long arg3) {
 				spezwiderText.setText(String.valueOf(werkstoffe.get(arg2)
 						.getWiderstand()) + " Ohm mm/m");
+				calculateAndDisplay();
 			}
 
 			@Override
@@ -64,16 +65,7 @@ public class WiderstandElLeiter extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (laengeText.length() > 0 && querschnittText.length() > 0
-						&& spezwiderText.length() > 0) {
-					String laenge = laengeText.getText().toString();
-					String querschnitt = querschnittText.getText().toString();
-					String widerstand = spezwiderText.getText().toString();
-					spezwiderText.setText(Calculations
-							.validateStringInput(widerstand) + " Ohm mm/m");
-					resultText.setText(Calculations.calcElWiderstand(
-							widerstand, laenge, querschnitt) + " Ohm");
-				}
+				calculateAndDisplay();
 			}
 		});
 
@@ -100,6 +92,19 @@ public class WiderstandElLeiter extends Fragment {
 		querschnittText.setText("");
 		resultText.setText("");
 		spezwiderText.setText("");
+	}
+
+	private void calculateAndDisplay() {
+		if (laengeText.length() > 0 && querschnittText.length() > 0
+				&& spezwiderText.length() > 0) {
+			String laenge = laengeText.getText().toString();
+			String querschnitt = querschnittText.getText().toString();
+			String widerstand = spezwiderText.getText().toString();
+			spezwiderText.setText(Calculations.validateStringInput(widerstand)
+					+ " Ohm mm/m");
+			resultText.setText(Calculations.calcElWiderstand(widerstand,
+					laenge, querschnitt) + " Ohm");
+		}
 	}
 
 	public class Werkstoff {
