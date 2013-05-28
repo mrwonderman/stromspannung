@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="Widerstand el. Leiter"
+            android:text="@string/berechnung_widerstandelleiter"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView1"
             android:layout_below="@+id/textView1"
-            android:text="Wenn der Temperatureinfluss nicht berücksichtigt wird, ist der Widerstand eines Drahtes proportional zur Länge und zum spezifischen Widerstand und umgekehrt proportional zum Querschnitt." />
+            android:text="@string/berechnung_widerstandelleiter_beschreibung" />
 
         <TextView
             android:id="@+id/textView7"
@@ -40,7 +40,7 @@
             android:layout_alignLeft="@+id/textView2"
             android:layout_below="@+id/textView2"
             android:paddingTop="8dp"
-            android:text="Berechnung"
+            android:text="@string/berechnung"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout
@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Spezifischer Widerstand (entweder via Dropdown oder direkte Eingabe):" />
+                    android:text="@string/spezifischer_widerstand" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                         android:layout_gravity="left"
                         android:layout_weight="0.50"
                         android:gravity="center_vertical"
-                        android:text="Länge :" />
+                        android:text="@string/laenge" />
 
                     <EditText
                         android:id="@+id/erlaenge"
@@ -107,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:text="Querschnitt :" />
+                        android:text="@string/querschnitt" />
 
                     <EditText
                         android:id="@+id/elquerschnitt"
@@ -124,7 +124,7 @@
                         android:layout_gravity="left|fill_vertical"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
-                        android:text="@string/ergebnis_" />
+                        android:text="@string/ergebnis" />
 
                     <EditText
                         android:id="@+id/ergelwider"
@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/linearLayout3"
-            android:text="@string/l_schen" />
+            android:text="@string/loeschen" />
     </RelativeLayout>
 
 </ScrollView>

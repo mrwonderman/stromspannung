@@ -17,6 +17,8 @@ import android.widget.Spinner;
 
 public class WiderstandElLeiter extends Fragment {
 
+	private EditText laengeText, querschnittText, resultText, spezwiderText;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -24,11 +26,10 @@ public class WiderstandElLeiter extends Fragment {
 
 		final Spinner spinner = (Spinner) view.findViewById(R.id.spinner1);
 
-		final EditText laenge = (EditText) view.findViewById(R.id.erlaenge);
-		final EditText querschnitt = (EditText) view
-				.findViewById(R.id.elquerschnitt);
-		final EditText result = (EditText) view.findViewById(R.id.ergelwider);
-		final EditText spezwider = (EditText) view.findViewById(R.id.spezwider);
+		laengeText = (EditText) view.findViewById(R.id.erlaenge);
+		querschnittText = (EditText) view.findViewById(R.id.elquerschnitt);
+		resultText = (EditText) view.findViewById(R.id.ergelwider);
+		spezwiderText = (EditText) view.findViewById(R.id.spezwider);
 
 		final ArrayList<Werkstoff> werkstoffe = new ArrayList<Werkstoff>();
 		werkstoffe.add(new Werkstoff("Silber", 0.0169));
@@ -48,8 +49,8 @@ public class WiderstandElLeiter extends Fragment {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				spezwider.setText(String.valueOf(werkstoffe.get(arg2)
-						.getWiderstand()));
+				spezwiderText.setText(String.valueOf(werkstoffe.get(arg2)
+						.getWiderstand()) + " Ohm mm/m");
 			}
 
 			@Override
@@ -63,18 +64,15 @@ public class WiderstandElLeiter extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (laenge.length() > 0 && querschnitt.length() > 0
-						&& spezwider.length() > 0) {
-					double lae = Double
-							.parseDouble(laenge.getText().toString());
-					double quer = Double.parseDouble(querschnitt.getText()
-							.toString());
-					double widerstand = Double.parseDouble(spezwider.getText()
-							.toString());
-					spezwider.setText(spezwider.getText().toString()
-							+ " Ohm mm²/m");
-					result.setText(String.valueOf((widerstand * lae) / quer)
-							+ " Ohm");
+				if (laengeText.length() > 0 && querschnittText.length() > 0
+						&& spezwiderText.length() > 0) {
+					String laenge = laengeText.getText().toString();
+					String querschnitt = querschnittText.getText().toString();
+					String widerstand = spezwiderText.getText().toString();
+					spezwiderText.setText(Calculations
+							.validateStringInput(widerstand) + " Ohm mm/m");
+					resultText.setText(Calculations.calcElWiderstand(
+							widerstand, laenge, querschnitt) + " Ohm");
 				}
 			}
 		});
@@ -84,19 +82,24 @@ public class WiderstandElLeiter extends Fragment {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 
-		Button del7 = (Button) view.findViewById(R.id.del7);
-		del7.setOnClickListener(new OnClickListener() {
+		Button loeschen = (Button) view.findViewById(R.id.del7);
+		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				laenge.setText("");
-				querschnitt.setText("");
-				result.setText("");
-				spezwider.setText("");
+				clearUIFields();
 			}
+
 		});
 
 		return view;
+	}
+
+	private void clearUIFields() {
+		laengeText.setText("");
+		querschnittText.setText("");
+		resultText.setText("");
+		spezwiderText.setText("");
 	}
 
 	public class Werkstoff {

@@ -26,7 +26,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/berechnung_von_r2_auf_grund_des_ersatzwiderstandes_"
+            android:text="@string/berechnung_r2_beschreibung"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <LinearLayout
@@ -38,7 +38,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/rgesamt_" />
+                android:text="@string/rgesamt" />
 
             <EditText
                 android:id="@+id/r1"
@@ -57,7 +57,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/r1_" />
+                android:text="@string/r1" />
 
             <EditText
                 android:id="@+id/r2"
@@ -76,7 +76,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/ergebnis_" />
+                android:text="@string/ergebnis" />
 
             <EditText
                 android:id="@+id/ewider"
@@ -96,7 +96,7 @@
                 android:id="@+id/del4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/l_schen" />
+                android:text="@string/loeschen" />
 
             <Button
                 android:id="@+id/ersatzwiderstandberechen"

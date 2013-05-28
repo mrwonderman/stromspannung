@@ -15,7 +15,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:paddingTop="8dp"
-        android:text="Die elektrische Spannung"
+        android:text="@string/berechnung_spannung"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView7"
-        android:text="Die Spannung ist die elektrische Kraft (Druck) welche die Elektronen durch den geschlossenen Stromkreis treibt." />
+        android:text="@string/berechnung_spannung_beschreibung" />
 
     <TextView
         android:id="@+id/TextView02"
@@ -33,7 +33,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView14"
         android:paddingTop="8dp"
-        android:text="Berechnung"
+        android:text="@string/berechnung"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -43,7 +43,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/TextView02"
         android:ems="10"
-        android:hint="Strom (I)"
+        android:hint="@string/strom_i"
         android:inputType="number|numberDecimal" >
 
         <requestFocus />
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/ergebnisSpannung"
-        android:text="@string/l_schen" />
+        android:text="@string/loeschen" />
 
     <Button
         android:id="@+id/berechnenSpannung"
@@ -84,7 +84,7 @@
         android:layout_alignBaseline="@+id/ergSpannungStrom"
         android:layout_alignBottom="@+id/ergSpannungStrom"
         android:layout_toRightOf="@+id/ergSpannungStrom"
-        android:text="*"
+        android:text="@string/multiplicator"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -96,7 +96,7 @@
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/TextView01"
         android:ems="10"
-        android:hint="Widerstand (R)"
+        android:hint="@string/widerstand_r"
         android:inputType="number|numberDecimal" />
 
 </RelativeLayout>

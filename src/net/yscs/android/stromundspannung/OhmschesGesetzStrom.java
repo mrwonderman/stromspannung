@@ -15,22 +15,21 @@ import net.yscs.android.stromundspannung.R;
 
 public class OhmschesGesetzStrom extends Fragment {
 
+	private EditText stromSpannungText, stromWiderstandText, ergStrom;
+	private CheckBox mACalculator;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.calculate_strom, container, false);
+		View view = inflater
+				.inflate(R.layout.calculate_strom, container, false);
 
-		final EditText stromSpannungText = (EditText) view
-				.findViewById(R.id.ergStromSpannung);
-		final EditText stromWiderstandText = (EditText) view
+		stromSpannungText = (EditText) view.findViewById(R.id.ergStromSpannung);
+		stromWiderstandText = (EditText) view
 				.findViewById(R.id.ergStromWiderstand);
+		ergStrom = (EditText) view.findViewById(R.id.ergebnisStrom);
 
-		final EditText ergStrom = (EditText) view
-				.findViewById(R.id.ergebnisStrom);
-
-		final CheckBox mACalculator = (CheckBox) view
-				.findViewById(R.id.mAConverter);
-
+		mACalculator = (CheckBox) view.findViewById(R.id.mAConverter);
 		mACalculator.setEnabled(false);
 		mACalculator.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -38,21 +37,15 @@ public class OhmschesGesetzStrom extends Fragment {
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
 				if (ergStrom.length() > 0) {
+					String strom = ergStrom.getText().toString();
 					if (isChecked) {
-						String string = ergStrom.getText().toString();
-						if (string.contains("A")) {
-							string = string.replace("A", "");
-						}
-						double parseDouble = Double.parseDouble(string);
+						double parseDouble = Double.parseDouble(Calculations
+								.validateStringInput(strom));
 						ergStrom.setText(String.valueOf(parseDouble * 1000)
 								+ " mA");
 					} else {
-
-						String string = ergStrom.getText().toString();
-						if (string.contains("mA")) {
-							string = string.replace("mA", "");
-						}
-						double parseDouble = Double.parseDouble(string);
+						double parseDouble = Double.parseDouble(Calculations
+								.validateStringInput(strom));
 						ergStrom.setText(String.valueOf(parseDouble / 1000)
 								+ " A");
 					}
@@ -68,34 +61,39 @@ public class OhmschesGesetzStrom extends Fragment {
 			public void onClick(View v) {
 				if (stromSpannungText.getText().length() > 0
 						&& stromWiderstandText.getText().length() > 0) {
-					double spannung = Double.valueOf(stromSpannungText
-							.getText().toString());
-					double widerstand = Double.valueOf(stromWiderstandText
-							.getText().toString());
-					stromSpannungText.setText(stromSpannungText.getText()
-							+ " V");
-					stromWiderstandText.setText(stromWiderstandText.getText()
-							+ " Ohm");
-					ergStrom.setText(String.valueOf(spannung / widerstand)
-							+ " A");
+					String spannung = stromSpannungText.getText().toString();
+					String widerstand = stromWiderstandText.getText()
+							.toString();
+
+					stromSpannungText.setText(Calculations
+							.validateStringInput(spannung) + " V");
+					stromWiderstandText.setText(Calculations
+							.validateStringInput(widerstand) + " Ohm");
+					ergStrom.setText(String.valueOf(Calculations.calcStrom(
+							spannung, widerstand)) + " A");
 					mACalculator.setEnabled(true);
 
 				}
 			}
 		});
 
-		Button delete1 = (Button) view.findViewById(R.id.del1);
-		delete1.setOnClickListener(new OnClickListener() {
+		Button loeschen = (Button) view.findViewById(R.id.del1);
+		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				stromSpannungText.setText("");
-				stromWiderstandText.setText("");
-				ergStrom.setText("");
-				mACalculator.setChecked(false);
-				mACalculator.setEnabled(false);
+				clearUIFields();
 			}
+
 		});
 		return view;
+	}
+
+	private void clearUIFields() {
+		stromSpannungText.setText("");
+		stromWiderstandText.setText("");
+		ergStrom.setText("");
+		mACalculator.setChecked(false);
+		mACalculator.setEnabled(false);
 	}
 }

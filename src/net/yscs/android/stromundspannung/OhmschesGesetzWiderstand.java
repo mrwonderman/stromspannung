@@ -12,55 +12,59 @@ import net.yscs.android.stromundspannung.R;
 
 public class OhmschesGesetzWiderstand extends Fragment {
 
+	private EditText widerstandSpannungText, widerstandStromText,
+			ergWiderstand;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.calculate_widerstand, container,
 				false);
 
-		final EditText widerstandSpannungText = (EditText) view
+		widerstandSpannungText = (EditText) view
 				.findViewById(R.id.ergWiderstandSpannung);
-		final EditText widerstandStromText = (EditText) view
+		widerstandStromText = (EditText) view
 				.findViewById(R.id.ergWiderstandStrom);
+		ergWiderstand = (EditText) view.findViewById(R.id.ergebnisWiderstand);
 
-		final EditText ergWiderstand = (EditText) view
-				.findViewById(R.id.ergebnisWiderstand);
-
-		Button berechnenWiderstandButton = (Button) view
-				.findViewById(R.id.berechnenWiderstand);
-		berechnenWiderstandButton.setOnClickListener(new OnClickListener() {
+		Button berechnen = (Button) view.findViewById(R.id.berechnenWiderstand);
+		berechnen.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				if (widerstandSpannungText.getText().length() > 0
 						&& widerstandStromText.getText().length() > 0) {
-					double spannung = Double.valueOf(widerstandSpannungText
-							.getText().toString());
-					double strom = Double.valueOf(widerstandStromText.getText()
-							.toString());
+					String spannung = widerstandSpannungText.getText()
+							.toString();
+					String strom = widerstandStromText.getText().toString();
 
-					widerstandSpannungText.setText(widerstandSpannungText
-							.getText() + " V");
-					widerstandStromText.setText(widerstandStromText.getText()
-							+ " A");
+					widerstandSpannungText.setText(Calculations
+							.validateStringInput(spannung) + " V");
+					widerstandStromText.setText(Calculations
+							.validateStringInput(strom) + " A");
 
-					ergWiderstand.setText(String.valueOf(spannung / strom)
-							+ "  Ohm");
+					ergWiderstand.setText(String.valueOf(Calculations
+							.calcWiderstand(spannung, strom)) + "  Ohm");
 
 				}
 			}
 		});
 
-		Button delete3 = (Button) view.findViewById(R.id.del3);
-		delete3.setOnClickListener(new OnClickListener() {
+		Button loeschen = (Button) view.findViewById(R.id.del3);
+		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				widerstandSpannungText.setText("");
-				widerstandStromText.setText("");
-				ergWiderstand.setText("");
+				clearUIFields();
 			}
+
 		});
 		return view;
+	}
+
+	private void clearUIFields() {
+		widerstandSpannungText.setText("");
+		widerstandStromText.setText("");
+		ergWiderstand.setText("");
 	}
 }

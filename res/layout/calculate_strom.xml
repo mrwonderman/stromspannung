@@ -25,21 +25,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
-                android:text="Der elektrische Strom"
+                android:text="@string/berechnung_strom"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Man hat such den elektrischen Strom tatsächlich als Fluss von Teilchen (wie einen Wasserstrom in einer Röhre) vorzustellen." />
+                android:text="@string/berechnung_strom_beschreibung" />
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Berechnung"
+                android:text="@string/berechnung"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <LinearLayout
@@ -56,14 +56,14 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Spannung (U)"
+                        android:hint="@string/spannung_u"
                         android:inputType="number|numberDecimal" />
 
                     <TextView
                         android:id="@+id/textView16"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="/"
+                        android:text="@string/divider"
                         android:textAppearance="?android:attr/textAppearanceLarge" />
 
                     <EditText
@@ -71,7 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:hint="Widerstand (R)"
+                        android:hint="@string/widerstand_r"
                         android:inputType="number|numberDecimal" />
                 </LinearLayout>
 
@@ -93,7 +93,7 @@
                         android:id="@+id/mAConverter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="mA" />
+                        android:text="@string/ma" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,7 +104,7 @@
                         android:id="@+id/del1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/l_schen" />
+                        android:text="@string/loeschen" />
 
                     <Button
                         android:id="@+id/berechnenStrom"

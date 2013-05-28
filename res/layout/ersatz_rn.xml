@@ -17,7 +17,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:paddingTop="8dp"
-        android:text="@string/rgesamt_bei_rn"
+        android:text="@string/berechnung_rgesamtbeirn"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/TextView07"
-        android:text="@string/berechnung_des_ersatzwiderstands_wennes_mehr_als_2_parallelgeschaltete_widerst_nde_hat_"
+        android:text="@string/berechnung_ersatzwiderstand_mehr2_beschreibung"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <RelativeLayout
@@ -57,7 +57,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:drawableLeft="@android:drawable/ic_input_add"
-            android:text="@string/_" />
+            android:text="@string/hinzufuegen" />
     </RelativeLayout>
 
     <TextView
@@ -67,7 +67,7 @@
         android:layout_alignLeft="@+id/relativeLayout1"
         android:layout_below="@+id/relativeLayout1"
         android:paddingTop="8dp"
-        android:text="Hinzugefügte Widerstände :"
+        android:text="@string/hinzugefuegte_widerstaende"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textStyle="bold" />
 
@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/relativeLayout1"
         android:layout_below="@+id/textView5"
-        android:text="@string/noch_keine_widerst_nde_hinzugef_gt_" />
+        android:text="@string/default_nochnichthinzugefuegt" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -95,7 +95,7 @@
             android:layout_toLeftOf="@+id/ewider3"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="@string/ergebnis_" />
+            android:text="@string/ergebnis" />
 
         <EditText
             android:id="@+id/ewider3"
@@ -124,7 +124,7 @@
             android:layout_alignBaseline="@+id/berechnen3"
             android:layout_alignBottom="@+id/berechnen3"
             android:layout_alignParentLeft="true"
-            android:text="@string/l_schen" />
+            android:text="@string/loeschen" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -33,8 +33,8 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		title = drawerTitle = getTitle();
-		partTitle = getResources().getStringArray(R.array.planets_array);
-		descriptions = getResources().getStringArray(R.array.descriptions);
+		partTitle = getResources().getStringArray(R.array.drawer_titel);
+		descriptions = getResources().getStringArray(R.array.drawer_descriptions);
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerListView = (ListView) findViewById(R.id.left_drawer);
 
