@@ -38,16 +38,19 @@ public class OhmschesGesetzStrom extends Fragment {
 					boolean isChecked) {
 				if (ergStrom.length() > 0) {
 					String strom = ergStrom.getText().toString();
-					if (isChecked) {
-						double parseDouble = Double.parseDouble(Calculations
-								.validateStringInput(strom));
-						ergStrom.setText(String.valueOf(parseDouble * 1000)
-								+ " mA");
-					} else {
-						double parseDouble = Double.parseDouble(Calculations
-								.validateStringInput(strom));
-						ergStrom.setText(String.valueOf(parseDouble / 1000)
-								+ " A");
+
+					String validateStringInput = Calculations
+							.validateStringInput(strom);
+					if (!validateStringInput.equals("")) {
+						double parseDouble = Double
+								.parseDouble(validateStringInput);
+						if (isChecked) {
+							ergStrom.setText(String.valueOf(parseDouble * 1000)
+									+ " mA");
+						} else {
+							ergStrom.setText(String.valueOf(parseDouble / 1000)
+									+ " A");
+						}
 					}
 				}
 			}
