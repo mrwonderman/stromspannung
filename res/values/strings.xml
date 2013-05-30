@@ -1,11 +1,11 @@
 <resources>
 
     <string name="app_name">Strom und Spannung</string>
-    
+
     <!-- Berechnung R2 -->
     <string name="berechnung_r2">Berechnung R2</string>
     <string name="berechnung_r2_beschreibung">Berechnung von R2 auf Grund des Ersatzwiderstandes.</string>
-    
+
     <!-- Berechnung von RGesamt -->
     <string name="berechnung_rgesamt">Berechnung von RGesamt</string>
     <string name="berechnung_rgesamt_beschreibung">Berechnung von RGesamt (Ersatzwiderstand) mit 2 parallell geschalteten Widerständen.</string>
@@ -21,18 +21,23 @@
     <!-- Der elektrische Strom -->
     <string name="berechnung_strom">Der elektrische Strom</string>
     <string name="berechnung_strom_beschreibung">Man hat sich den elektrischen Strom tatsächlich als Fluss von Teilchen (wie einen Wasserstrom in einer Röhre) vorzustellen.</string>
-   
+
     <!-- Der elektrische Widerstand -->
     <string name="berechung_widerstand">Der elektrische Widerstand</string>
     <string name="berechung_widerstand_beschreibung">Der Widerstand eines Leiters behindert den Elektronenfluss. Er hängt vom Leitermaterial und von den Abmessungen des Leiters ab.</string>
-    
+
     <!-- Widerstand el. Leiter -->
     <string name="berechnung_widerstandelleiter">Widerstand el. Leiter</string>
     <string name="berechnung_widerstandelleiter_beschreibung">Wenn der Temperatureinfluss nicht berücksichtigt wird, ist der Widerstand eines Drahtes proportional zur Länge und zum spezifischen Widerstand und umgekehrt proportional zum Querschnitt.</string>
+    
+    <!-- Widerstandsänderung -->
+    <string name="berechnung_widerstandsaenderung">Berechnung Widerstandsänderung</string>
+    <string name="berechnung_widerstandsaenderung_beschreibung">Berechnung der Widerstandsänderung mit der Temparatur.</string>
 
     <!-- navigation drawer -->
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+
     <string-array name="drawer_titel">
         <item>Ohmsches Gesetz</item>
         <item>Strom</item>
@@ -44,8 +49,8 @@
         <item>RGesamt bei Rn</item>
         <item>Widerstand</item>
         <item>Widerstand el. Leiter</item>
+        <item>Widerstand Temperatur</item>
     </string-array>
-    
     <string-array name="drawer_descriptions">
         <item></item>
         <item>Berechnung des Stroms</item>
@@ -57,6 +62,7 @@
         <item>Berechnung von RGesamt bei Rn</item>
         <item></item>
         <item>Widerstand el. Leiter</item>
+        <item>Widerstandsänderung</item>
     </string-array>
 
     <!-- various things -->
@@ -66,7 +72,7 @@
     <string name="rgesamt">RGesamt :</string>
     <string name="r1">R1 :</string>
     <string name="r2">R2 :</string>
-    <string name="ergebnis">Ergebnis :</string>  
+    <string name="ergebnis">Ergebnis :</string>
     <string name="loeschen">Löschen</string>
     <string name="berechnen">Berechnen</string>
     <string name="hinzufuegen">add</string>
@@ -79,6 +85,10 @@
     <string name="laenge">Länge :</string>
     <string name="querschnitt">Querschnitt :</string>
     <string name="hinzugefuegte_widerstaende">Hinzugefügte Widerstände :</string>
-
+    <string name="material">Material:</string>
+    <string name="anfangstemperatur">Anfangstemperatur :</string>
+    <string name="anfangswiderstand">Anfangswiderstand :</string>
+    <string name="betriebstemperartur">Betriebstemperartur :</string>
+    <string name="betriebswiderstand">Betriebswiderstand :</string>
 
 </resources>
