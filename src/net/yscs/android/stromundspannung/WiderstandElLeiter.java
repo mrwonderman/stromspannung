@@ -1,6 +1,7 @@
 package net.yscs.android.stromundspannung;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ public class WiderstandElLeiter extends Fragment {
 		for (Werkstoff werkstoff : werkstoffe) {
 			dropdownWerkstoffe.add(werkstoff.getWerkstoff());
 		}
+		Collections.sort(dropdownWerkstoffe);
 
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
