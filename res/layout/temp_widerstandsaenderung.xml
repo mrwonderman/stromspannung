@@ -38,9 +38,9 @@
         android:id="@+id/spinner1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText1"
-        android:layout_alignTop="@+id/editText1"
-        android:layout_toRightOf="@+id/editText1" />
+        android:layout_alignBottom="@+id/material"
+        android:layout_alignTop="@+id/material"
+        android:layout_toRightOf="@+id/material" />
 
     <TextView
         android:id="@+id/textView1"
@@ -51,7 +51,7 @@
         android:text="@string/material" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/material"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
@@ -66,8 +66,8 @@
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText2"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignBottom="@+id/anfangs_temp"
+        android:layout_alignLeft="@+id/material"
         android:layout_below="@+id/spinner1" >
 
         <TextView
@@ -97,7 +97,7 @@
         android:id="@+id/linearLayout4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText4"
+        android:layout_alignBottom="@+id/betriebs_temp"
         android:layout_alignLeft="@+id/linearLayout5"
         android:layout_below="@+id/linearLayout5" >
 
@@ -125,10 +125,10 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/anfangs_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignLeft="@+id/anfangs_widerstand"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/spinner1"
         android:layout_weight="1"
@@ -136,10 +136,10 @@
         android:inputType="numberDecimal" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/anfangs_widerstand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignLeft="@+id/betriebs_temp"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/linearLayout5"
         android:layout_weight="1"
@@ -147,21 +147,21 @@
         android:inputType="numberDecimal" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/betriebs_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/anfangs_widerstand"
         android:layout_toRightOf="@+id/linearLayout4"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/betriebs_widerstand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignLeft="@+id/betriebs_temp"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/linearLayout6"
         android:layout_weight="1"
@@ -169,39 +169,10 @@
         android:inputType="numberDecimal" />
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout3"
-        android:layout_alignRight="@+id/linearLayout6"
-        android:layout_below="@+id/editText5" >
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="31dp"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:gravity="center_vertical"
-            android:text="@string/ergebnis" />
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/linearLayout7"
-        android:ems="10"
-        android:inputType="numberDecimal" />
-
-    <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editText6"
-        android:layout_below="@+id/editText6" >
+        android:layout_below="@+id/betriebs_widerstand" >
 
         <Button
             android:id="@+id/del4"
