@@ -1,4 +1,4 @@
-package net.yscs.android.stromundspannung.facuslisteners;
+package net.yscs.android.stromundspannung.focuslisteners;
 
 import net.yscs.android.stromundspannung.Calculations;
 import android.view.View;

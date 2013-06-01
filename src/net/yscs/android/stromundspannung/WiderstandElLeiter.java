@@ -2,8 +2,8 @@ package net.yscs.android.stromundspannung;
 
 import java.util.ArrayList;
 
-import net.yscs.android.stromundspannung.facuslisteners.MeterOnFocusChangeListener;
-import net.yscs.android.stromundspannung.facuslisteners.Millimeter2OnFocusChangeListener;
+import net.yscs.android.stromundspannung.focuslisteners.MeterOnFocusChangeListener;
+import net.yscs.android.stromundspannung.focuslisteners.Millimeter2OnFocusChangeListener;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;

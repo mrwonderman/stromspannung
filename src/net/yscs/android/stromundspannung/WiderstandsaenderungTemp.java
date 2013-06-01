@@ -2,8 +2,8 @@ package net.yscs.android.stromundspannung;
 
 import java.util.ArrayList;
 
-import net.yscs.android.stromundspannung.facuslisteners.GradOnFocusChangeListener;
-import net.yscs.android.stromundspannung.facuslisteners.OhmOnFocusChangeListener;
+import net.yscs.android.stromundspannung.focuslisteners.GradOnFocusChangeListener;
+import net.yscs.android.stromundspannung.focuslisteners.OhmOnFocusChangeListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
