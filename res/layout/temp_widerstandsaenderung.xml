@@ -34,14 +34,6 @@
         android:text="@string/berechnung_widerstandsaenderung_beschreibung"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/material"
-        android:layout_alignTop="@+id/material"
-        android:layout_toRightOf="@+id/material" />
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -222,5 +214,14 @@
         android:layout_alignTop="@+id/betriebs_widerstand"
         android:layout_toRightOf="@+id/betriebs_temp"
         android:drawableLeft="@android:drawable/ic_delete" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/material"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/material"
+        android:layout_toRightOf="@+id/material" />
 
 </RelativeLayout>
