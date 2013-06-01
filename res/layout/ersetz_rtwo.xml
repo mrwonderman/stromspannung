@@ -16,7 +16,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/el_widerstand_beschreibung"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/berechnung_r2"

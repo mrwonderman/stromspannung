@@ -1,161 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollView1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp" >
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/elwidertitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/berechnung_widerstandelleiter"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/elwiderbesch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elwidertitle"
+        android:layout_below="@+id/elwidertitle"
+        android:layout_marginBottom="8dp"
+        android:text="@string/berechnung_widerstandelleiter_beschreibung"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Spinner
+        android:id="@+id/elwiderspinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/elwiderspez"
+        android:layout_alignTop="@+id/elwiderspez"
+        android:layout_toRightOf="@+id/elwiderspez" />
+
+    <TextView
+        android:id="@+id/elwiderspezbeschreibung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elwiderbesch"
+        android:layout_below="@+id/elwiderbesch"
+        android:text="@string/spezifischer_widerstand" />
+
+    <EditText
+        android:id="@+id/elwiderspez"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elwiderspezbeschreibung"
+        android:layout_below="@+id/elwiderspezbeschreibung"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/elwider1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/elwiderlaenge"
+        android:layout_alignLeft="@+id/elwiderspez"
+        android:layout_below="@+id/elwiderspinner" >
+
+        <TextView
+            android:id="@+id/elwider2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/laenge" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/elwider3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elwider1"
+        android:layout_below="@+id/elwider1" >
+
+        <TextView
+            android:id="@+id/elwider4"
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:gravity="center_vertical"
+            android:text="@string/querschnitt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/elwider5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/elwidererg"
+        android:layout_alignLeft="@+id/elwider3"
+        android:layout_below="@+id/elwider3" >
+
+        <TextView
+            android:id="@+id/elwider6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/ergebnis" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/elwiderlaenge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elwiderquer"
+        android:layout_below="@+id/elwiderspinner"
+        android:layout_toLeftOf="@+id/mal2"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/elwiderquer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/elwider3"
+        android:layout_toLeftOf="@+id/durchmesser"
+        android:layout_toRightOf="@+id/elwider3"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/elwidererg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elwiderquer"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/elwiderquer"
+        android:layout_weight="1"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="numberDecimal" />
+
+    <LinearLayout
+        android:id="@+id/elwider7"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:descendantFocusability="beforeDescendants"
-        android:focusableInTouchMode="true"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="8dp"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbars="vertical" >
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/elwider5" >
 
-        <TextView
-            android:id="@+id/textView1"
+        <Button
+            android:id="@+id/elwider_del"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/berechnung_widerstandelleiter"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/loeschen" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView1"
-            android:layout_below="@+id/textView1"
-            android:text="@string/berechnung_widerstandelleiter_beschreibung" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_below="@+id/textView2"
-            android:paddingTop="8dp"
-            android:text="@string/berechnung"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout3"
+        <Button
+            android:id="@+id/elwider_berechnen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView7"
-            android:layout_below="@+id/textView7" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/spezifischer_widerstand" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <EditText
-                        android:id="@+id/spezwider"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:ems="10"
-                        android:inputType="numberDecimal" />
-
-                    <Spinner
-                        android:id="@+id/spinner1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:columnCount="2"
-                    android:rowCount="2" >
-
-                    <TextView
-                        android:id="@+id/textView9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_weight="0.50"
-                        android:gravity="center_vertical"
-                        android:text="@string/laenge" />
-
-                    <EditText
-                        android:id="@+id/erlaenge"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:inputType="numberDecimal" />
-
-                    <TextView
-                        android:id="@+id/TextView01"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="@string/querschnitt" />
-
-                    <EditText
-                        android:id="@+id/elquerschnitt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="fill_horizontal"
-                        android:ems="10"
-                        android:inputType="numberDecimal" />
-
-                    <TextView
-                        android:id="@+id/TextView02"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left|fill_vertical"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="@string/ergebnis" />
-
-                    <EditText
-                        android:id="@+id/ergelwider"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="fill_horizontal|center_vertical"
-                        android:ems="10"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
-                        android:inputType="numberDecimal" />
-                </GridLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/calcelleiter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/linearLayout3"
-            android:layout_marginBottom="8dp"
-            android:layout_toRightOf="@+id/textView7"
             android:text="@string/berechnen" />
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/del7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/linearLayout3"
-            android:text="@string/loeschen" />
-    </RelativeLayout>
+    <Button
+        android:id="@+id/mal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/elwiderlaenge"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/elwiderlaenge"
+        android:text="x2" />
 
-</ScrollView>
+    <Button
+        android:id="@+id/durchmesser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/elwiderquer"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/mal2"
+        android:text="Ø" />
+
+</RelativeLayout>

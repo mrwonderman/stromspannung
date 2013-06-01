@@ -1,5 +1,6 @@
 package net.yscs.android.stromundspannung;
 
+import net.yscs.android.stromundspannung.facuslisteners.OhmOnFocusChangeListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class ErsatzRTwo extends Fragment {
+public class ErsatzRTwo extends Fragment implements StructuredUiFragment {
 
 	private EditText result, r1, r2;
 
@@ -22,6 +23,9 @@ public class ErsatzRTwo extends Fragment {
 
 		r1 = (EditText) view.findViewById(R.id.r1);
 		r2 = (EditText) view.findViewById(R.id.r2);
+
+		r1.setOnFocusChangeListener(new OhmOnFocusChangeListener(r1));
+		r2.setOnFocusChangeListener(new OhmOnFocusChangeListener(r2));
 
 		Button berechnen = (Button) view
 				.findViewById(R.id.ersatzwiderstandberechen);
@@ -49,7 +53,8 @@ public class ErsatzRTwo extends Fragment {
 		return view;
 	}
 
-	private void clearUiFields() {
+	@Override
+	public void clearUiFields() {
 		r1.setText("");
 		r2.setText("");
 		result.setText("");

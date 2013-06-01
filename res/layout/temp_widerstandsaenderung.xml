@@ -129,8 +129,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/anfangs_widerstand"
-        android:layout_alignParentRight="true"
         android:layout_below="@+id/spinner1"
+        android:layout_toLeftOf="@+id/temp_del_1"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
@@ -140,8 +140,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/betriebs_temp"
-        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/linearLayout5"
+        android:layout_toLeftOf="@+id/temp_del_1"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
@@ -150,8 +150,8 @@
         android:id="@+id/betriebs_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_below="@+id/anfangs_widerstand"
+        android:layout_toLeftOf="@+id/temp_del_2"
         android:layout_toRightOf="@+id/linearLayout4"
         android:layout_weight="1"
         android:ems="10"
@@ -162,8 +162,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/betriebs_temp"
-        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/linearLayout6"
+        android:layout_toLeftOf="@+id/temp_del_4"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
@@ -186,5 +186,41 @@
             android:layout_height="wrap_content"
             android:text="@string/berechnen" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/temp_del_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/anfangs_temp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/anfangs_temp"
+        android:drawableLeft="@android:drawable/ic_delete" />
+
+    <Button
+        android:id="@+id/temp_del_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/anfangs_widerstand"
+        android:layout_alignLeft="@+id/temp_del_1"
+        android:layout_below="@+id/temp_del_1"
+        android:drawableLeft="@android:drawable/ic_delete" />
+
+    <Button
+        android:id="@+id/temp_del_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/betriebs_temp"
+        android:layout_alignLeft="@+id/temp_del_2"
+        android:layout_alignTop="@+id/betriebs_temp"
+        android:drawableLeft="@android:drawable/ic_delete" />
+
+    <Button
+        android:id="@+id/temp_del_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/betriebs_widerstand"
+        android:layout_alignTop="@+id/betriebs_widerstand"
+        android:layout_toRightOf="@+id/betriebs_temp"
+        android:drawableLeft="@android:drawable/ic_delete" />
 
 </RelativeLayout>

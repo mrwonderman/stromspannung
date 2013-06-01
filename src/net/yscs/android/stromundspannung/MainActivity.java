@@ -34,7 +34,8 @@ public class MainActivity extends Activity {
 
 		title = drawerTitle = getTitle();
 		partTitle = getResources().getStringArray(R.array.drawer_titel);
-		descriptions = getResources().getStringArray(R.array.drawer_descriptions);
+		descriptions = getResources().getStringArray(
+				R.array.drawer_descriptions);
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerListView = (ListView) findViewById(R.id.left_drawer);
 
@@ -42,9 +43,9 @@ public class MainActivity extends Activity {
 				GravityCompat.START);
 		BaseAdapter adapter = new BaseAdapter() {
 
-			private int title_pos_1 = 0;
-			private int title_pos_2 = 4;
-			private int title_pos_3 = 8;
+			private final int title_pos_1 = 0;
+			private final int title_pos_2 = 4;
+			private final int title_pos_3 = 8;
 			private final Integer LIST_HEADER = 0;
 			private final Integer LIST_ITEM = 1;
 
@@ -112,7 +113,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public int getCount() {
-				return 11;
+				return 10;
 			}
 		};
 		drawerListView.setAdapter(adapter);
@@ -124,11 +125,13 @@ public class MainActivity extends Activity {
 		drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
 				R.drawable.ic_drawer, R.string.drawer_open,
 				R.string.drawer_close) {
+			@Override
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(title);
 				invalidateOptionsMenu();
 			}
 
+			@Override
 			public void onDrawerOpened(View drawerView) {
 				getActionBar().setTitle(drawerTitle);
 				invalidateOptionsMenu();
@@ -189,9 +192,9 @@ public class MainActivity extends Activity {
 		case 9:
 			fragment = new WiderstandElLeiter();
 			break;
-		case 10:
-			fragment = new WiderstandsaenderungTemp();
-			break;
+		// case 10:
+		// fragment = new WiderstandsaenderungTemp();
+		// break;
 		default:
 			fragment = new OhmschesGesetzStrom();
 			break;

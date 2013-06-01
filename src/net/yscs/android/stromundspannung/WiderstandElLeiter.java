@@ -1,10 +1,14 @@
 package net.yscs.android.stromundspannung;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
+import net.yscs.android.stromundspannung.facuslisteners.MeterOnFocusChangeListener;
+import net.yscs.android.stromundspannung.facuslisteners.Millimeter2OnFocusChangeListener;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,35 +20,71 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class WiderstandElLeiter extends Fragment {
+public class WiderstandElLeiter extends Fragment implements
+		StructuredUiFragment {
 
 	private EditText laengeText, querschnittText, resultText, spezwiderText;
+	private Button mal2;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.elwiderstand, container, false);
 
-		final Spinner spinner = (Spinner) view.findViewById(R.id.spinner1);
+		final Spinner spinner = (Spinner) view
+				.findViewById(R.id.elwiderspinner);
 
-		laengeText = (EditText) view.findViewById(R.id.erlaenge);
-		querschnittText = (EditText) view.findViewById(R.id.elquerschnitt);
-		resultText = (EditText) view.findViewById(R.id.ergelwider);
-		spezwiderText = (EditText) view.findViewById(R.id.spezwider);
+		laengeText = (EditText) view.findViewById(R.id.elwiderlaenge);
+		querschnittText = (EditText) view.findViewById(R.id.elwiderquer);
+		resultText = (EditText) view.findViewById(R.id.elwidererg);
+		spezwiderText = (EditText) view.findViewById(R.id.elwiderspez);
+
+		mal2 = (Button) view.findViewById(R.id.mal2);
+		mal2.setEnabled(false);
+		laengeText.setOnFocusChangeListener(new MeterOnFocusChangeListener(
+				laengeText));
+		TextWatcher mal2Watcher = new TextWatcher() {
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				if (count > 0) {
+					mal2.setEnabled(true);
+				} else {
+					mal2.setEnabled(false);
+				}
+
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// nothing to do here =)
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				// still nothing.. \^_^/
+			}
+		};
+		laengeText.addTextChangedListener(mal2Watcher);
+
+		querschnittText
+				.setOnFocusChangeListener(new Millimeter2OnFocusChangeListener(
+						querschnittText));
 
 		final ArrayList<Werkstoff> werkstoffe = new ArrayList<Werkstoff>();
-		werkstoffe.add(new Werkstoff("Silber", 0.0169));
-		werkstoffe.add(new Werkstoff("Kupfer", 0.0175));
 		werkstoffe.add(new Werkstoff("Aluminium", 0.029));
-		werkstoffe.add(new Werkstoff("Konstantan", 0.5));
-		werkstoffe.add(new Werkstoff("Chromnickel", 1.1));
 		werkstoffe.add(new Werkstoff("Bronze", 0.0185));
+		werkstoffe.add(new Werkstoff("Chromnickel", 1.1));
+		werkstoffe.add(new Werkstoff("Konstantan", 0.5));
+		werkstoffe.add(new Werkstoff("Kupfer", 0.0175));
+		werkstoffe.add(new Werkstoff("Silber", 0.0169));
 
 		ArrayList<String> dropdownWerkstoffe = new ArrayList<String>();
 		for (Werkstoff werkstoff : werkstoffe) {
 			dropdownWerkstoffe.add(werkstoff.getWerkstoff());
 		}
-		Collections.sort(dropdownWerkstoffe);
 
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -52,7 +92,7 @@ public class WiderstandElLeiter extends Fragment {
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				spezwiderText.setText(String.valueOf(werkstoffe.get(arg2)
-						.getWiderstand()) + " Ohm mm/m");
+						.getWiderstand()) + " Ohm mm²/m");
 				calculateAndDisplay();
 			}
 
@@ -62,7 +102,67 @@ public class WiderstandElLeiter extends Fragment {
 			}
 		});
 
-		Button berechnen = (Button) view.findViewById(R.id.calcelleiter);
+		mal2.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (laengeText.getText().length() > 0) {
+					laengeText.setText(String.valueOf(Calculations
+							.mal2(laengeText.getText().toString())));
+				}
+			}
+		});
+
+		Button querschnittBerechnen = (Button) view
+				.findViewById(R.id.durchmesser);
+		querschnittBerechnen.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				LayoutInflater inflater = LayoutInflater.from(getActivity());
+				final View yourCustomView = inflater.inflate(
+						R.layout.querschnitt_dialog, null);
+				final EditText editText = (EditText) yourCustomView
+						.findViewById(R.id.radius_eingabe);
+				final AlertDialog dialog = new AlertDialog.Builder(
+						getActivity()).setTitle("Radius eingeben")
+						.setView(yourCustomView).create();
+				final Button berechnen = (Button) yourCustomView
+						.findViewById(R.id.berechnenDialog);
+
+				if (querschnittText.getText().length() > 0) {
+					editText.setText(String.valueOf(Calculations
+							.calcRadius(querschnittText.getText().toString())));
+				}
+				berechnen.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						String result = String.valueOf(Calculations
+								.calcQuerschnitt(editText.getText().toString()));
+						if (!querschnittText.isFocused()) {
+							querschnittText.setText(result + " mm²");
+						} else {
+							querschnittText.setText(result);
+						}
+						dialog.dismiss();
+					}
+				});
+				Button button = (Button) yourCustomView
+						.findViewById(R.id.abbrechen_dialog);
+				button.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						dialog.dismiss();
+					}
+				});
+				dialog.show();
+			}
+		});
+
+		Button berechnen = (Button) view.findViewById(R.id.elwider_berechnen);
 		berechnen.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -76,24 +176,17 @@ public class WiderstandElLeiter extends Fragment {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 
-		Button loeschen = (Button) view.findViewById(R.id.del7);
+		Button loeschen = (Button) view.findViewById(R.id.elwider_del);
 		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				clearUIFields();
+				clearUiFields();
 			}
 
 		});
 
 		return view;
-	}
-
-	private void clearUIFields() {
-		laengeText.setText("");
-		querschnittText.setText("");
-		resultText.setText("");
-		spezwiderText.setText("");
 	}
 
 	private void calculateAndDisplay() {
@@ -103,7 +196,7 @@ public class WiderstandElLeiter extends Fragment {
 			String querschnitt = querschnittText.getText().toString();
 			String widerstand = spezwiderText.getText().toString();
 			spezwiderText.setText(Calculations.validateStringInput(widerstand)
-					+ " Ohm mm/m");
+					+ " Ohm mm²/m");
 			resultText.setText(Calculations.calcElWiderstand(widerstand,
 					laenge, querschnitt) + " Ohm");
 		}
@@ -135,5 +228,13 @@ public class WiderstandElLeiter extends Fragment {
 			this.widerstand = widerstand;
 		}
 
+	}
+
+	@Override
+	public void clearUiFields() {
+		laengeText.setText("");
+		querschnittText.setText("");
+		resultText.setText("");
+		spezwiderText.setText("");
 	}
 }
