@@ -61,7 +61,7 @@ public class ErsatzRTwo extends Fragment implements StructuredUiFragment {
 		if (r1.length() > 0 && r2.getText().length() > 0) {
 			result.setText(String.valueOf(Calculations.calcR2(r1.getText()
 					.toString(), r2.getText().toString()))
-					+ " Ohm");
+					+ getString(R.string._ohm));
 		}
 	}
 }

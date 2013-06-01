@@ -50,10 +50,10 @@ public class WiderstandsaenderungTemp extends Fragment implements
 						betriebswiderstand));
 
 		final ArrayList<Koeffizient> koeffiziente = new ArrayList<Koeffizient>();
-		koeffiziente.add(new Koeffizient("Aluminium", 0.004));
-		koeffiziente.add(new Koeffizient("Blei", 0.0038));
-		koeffiziente.add(new Koeffizient("Kupfer", 0.004));
-		koeffiziente.add(new Koeffizient("Wolfram", 0.0051));
+		koeffiziente.add(new Koeffizient(getString(R.string.aluminium), 0.004));
+		koeffiziente.add(new Koeffizient(getString(R.string.blei), 0.0038));
+		koeffiziente.add(new Koeffizient(getString(R.string.kupfer), 0.004));
+		koeffiziente.add(new Koeffizient(getString(R.string.wolfram), 0.0051));
 
 		ArrayList<String> dropdownKoeffiziente = new ArrayList<String>();
 		for (Koeffizient koeffizient : koeffiziente) {
@@ -65,7 +65,8 @@ public class WiderstandsaenderungTemp extends Fragment implements
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				material.setText(koeffiziente.get(arg2).getKelvin() + " K");
+				material.setText(koeffiziente.get(arg2).getKelvin()
+						+ getString(R.string._k));
 				calculateAndDisplay();
 			}
 
@@ -132,7 +133,7 @@ public class WiderstandsaenderungTemp extends Fragment implements
 				clearUiFields();
 			}
 		});
-		anfangstemp.setText("20¡C");
+		anfangstemp.setText(getString(R.string._20_c));
 		return view;
 	}
 
@@ -153,7 +154,7 @@ public class WiderstandsaenderungTemp extends Fragment implements
 					anfangstemp.getText().toString(), anfangswiderstand
 							.getText().toString(), betriebstemp.getText()
 							.toString(), material.getText().toString())
-					+ " Ohm");
+					+ getString(R.string._ohm));
 		} else if ((anfangstemp.getText().length() > 0)
 				&& (betriebstemp.getText().length() > 0)
 				&& (betriebswiderstand.getText().length() > 0)) {
@@ -161,7 +162,7 @@ public class WiderstandsaenderungTemp extends Fragment implements
 					anfangstemp.getText().toString(), betriebstemp.getText()
 							.toString(), betriebswiderstand.getText()
 							.toString(), material.getText().toString())
-					+ " Ohm");
+					+ getString(R.string._ohm));
 		} else if ((anfangstemp.getText().length() > 0)
 				&& (anfangswiderstand.getText().length() > 0)
 				&& (betriebswiderstand.getText().length() > 0)) {
@@ -169,7 +170,7 @@ public class WiderstandsaenderungTemp extends Fragment implements
 					anfangstemp.getText().toString(), anfangswiderstand
 							.getText().toString(), betriebswiderstand.getText()
 							.toString(), material.getText().toString())
-					+ " ¡C");
+					+ getString(R.string._c));
 		} else if ((anfangswiderstand.getText().length() > 0)
 				&& (betriebstemp.getText().length() > 0)
 				&& (betriebswiderstand.getText().length() > 0)) {
@@ -177,7 +178,7 @@ public class WiderstandsaenderungTemp extends Fragment implements
 					anfangswiderstand.getText().toString(), betriebstemp
 							.getText().toString(), betriebswiderstand.getText()
 							.toString(), material.getText().toString())
-					+ " ¡C");
+					+ getString(R.string._c));
 		}
 	}
 }

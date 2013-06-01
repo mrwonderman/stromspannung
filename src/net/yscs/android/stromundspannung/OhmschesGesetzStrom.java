@@ -46,10 +46,10 @@ public class OhmschesGesetzStrom extends Fragment implements
 								.parseDouble(validateStringInput);
 						if (isChecked) {
 							ergStrom.setText(String.valueOf(parseDouble * 1000)
-									+ " mA");
+									+ getString(R.string._ma));
 						} else {
 							ergStrom.setText(String.valueOf(parseDouble / 1000)
-									+ " A");
+									+ getString(R.string._a));
 						}
 					}
 				}
@@ -96,11 +96,12 @@ public class OhmschesGesetzStrom extends Fragment implements
 			String widerstand = stromWiderstandText.getText().toString();
 
 			stromSpannungText.setText(Calculations
-					.validateStringInput(spannung) + " V");
-			stromWiderstandText.setText(Calculations
-					.validateStringInput(widerstand) + " Ohm");
+					.validateStringInput(spannung) + getString(R.string._v));
+			stromWiderstandText
+					.setText(Calculations.validateStringInput(widerstand)
+							+ getString(R.string._ohm));
 			ergStrom.setText(String.valueOf(Calculations.calcStrom(spannung,
-					widerstand)) + " A");
+					widerstand)) + getString(R.string._a));
 			mACalculator.setEnabled(true);
 
 		}

@@ -60,7 +60,7 @@ public class ErsatzRGesamt extends Fragment implements StructuredUiFragment {
 		if (r1.length() > 0 && r2.length() > 0) {
 			result.setText(String.valueOf(Calculations.calcRGEsamt(r1.getText()
 					.toString(), r2.getText().toString()))
-					+ " Ohm");
+					+ getString(R.string._ohm));
 		}
 	}
 }

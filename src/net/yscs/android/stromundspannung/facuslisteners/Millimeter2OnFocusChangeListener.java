@@ -1,6 +1,7 @@
 package net.yscs.android.stromundspannung.facuslisteners;
 
 import net.yscs.android.stromundspannung.Calculations;
+import net.yscs.android.stromundspannung.R;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
@@ -21,7 +22,9 @@ public class Millimeter2OnFocusChangeListener implements OnFocusChangeListener {
 					.getText().toString()));
 		} else {
 			if (editText.getText().length() > 0) {
-				editText.setText(editText.getText() + " mm²");
+				editText.setText(editText.getText()
+						+ v.getContext().getResources()
+								.getString(R.string._mm_));
 			}
 		}
 	}

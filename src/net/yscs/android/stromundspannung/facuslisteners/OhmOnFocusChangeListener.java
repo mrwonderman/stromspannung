@@ -1,6 +1,7 @@
 package net.yscs.android.stromundspannung.facuslisteners;
 
 import net.yscs.android.stromundspannung.Calculations;
+import net.yscs.android.stromundspannung.R;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
@@ -23,7 +24,9 @@ public class OhmOnFocusChangeListener implements OnFocusChangeListener {
 		} else {
 			if (editText.getText().length() > 0) {
 				editText.setText(Calculations.validateStringInput(editText
-						.getText().toString()) + " Ohm");
+						.getText().toString())
+						+ v.getContext().getResources()
+								.getString(R.string._ohm));
 			}
 		}
 	}

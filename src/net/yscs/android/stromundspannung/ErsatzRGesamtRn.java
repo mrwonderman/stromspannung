@@ -85,7 +85,7 @@ public class ErsatzRGesamtRn extends Fragment implements StructuredUiFragment {
 	public void calculateAndDisplay() {
 		if (listOfRs.size() > 0) {
 			result.setText(String.valueOf(Calculations
-					.calcRErsatzBeiRn(listOfRs)) + " Ohm");
+					.calcRErsatzBeiRn(listOfRs)) + getString(R.string._ohm));
 		}
 	}
 }

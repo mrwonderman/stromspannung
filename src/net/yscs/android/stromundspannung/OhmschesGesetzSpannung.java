@@ -63,12 +63,13 @@ public class OhmschesGesetzSpannung extends Fragment implements
 			String widerstand = spannungWiderstandText.getText().toString();
 
 			spannungStromText.setText(Calculations.validateStringInput(strom)
-					+ " A");
-			spannungWiderstandText.setText(Calculations
-					.validateStringInput(widerstand) + " Ohm");
+					+ getString(R.string._a));
+			spannungWiderstandText
+					.setText(Calculations.validateStringInput(widerstand)
+							+ getString(R.string._ohm));
 
 			ergSpannung.setText(String.valueOf(Calculations.clacSpannung(strom,
-					widerstand)) + " V");
+					widerstand)) + getString(R.string._v));
 		}
 	}
 }

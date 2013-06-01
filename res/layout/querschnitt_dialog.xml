@@ -14,7 +14,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical"
-        android:text="Radius:" />
+        android:text="@string/radius_" />
 
     <EditText
         android:id="@+id/radius_eingabe"
@@ -43,7 +43,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Abbrechen" />
+            android:text="@string/abbrechen" />
 
         <Button
             android:id="@+id/berechnenDialog"
@@ -51,7 +51,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Berechnen" />
+            android:text="@string/berechnen" />
     </LinearLayout>
 
 </RelativeLayout>
