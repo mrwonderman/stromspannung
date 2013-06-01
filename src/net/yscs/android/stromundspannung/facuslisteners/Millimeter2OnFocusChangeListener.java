@@ -22,7 +22,8 @@ public class Millimeter2OnFocusChangeListener implements OnFocusChangeListener {
 					.getText().toString()));
 		} else {
 			if (editText.getText().length() > 0) {
-				editText.setText(editText.getText()
+				editText.setText(Calculations.validateStringInput(editText
+						.getText().toString())
 						+ v.getContext().getResources()
 								.getString(R.string._mm_));
 			}

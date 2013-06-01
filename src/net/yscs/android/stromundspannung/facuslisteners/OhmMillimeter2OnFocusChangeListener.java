@@ -6,11 +6,12 @@ import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 
-public class GradOnFocusChangeListener implements OnFocusChangeListener {
+public class OhmMillimeter2OnFocusChangeListener implements
+		OnFocusChangeListener {
 
 	private final EditText editText;
 
-	public GradOnFocusChangeListener(EditText editText) {
+	public OhmMillimeter2OnFocusChangeListener(EditText editText) {
 		super();
 		this.editText = editText;
 	}
@@ -20,14 +21,13 @@ public class GradOnFocusChangeListener implements OnFocusChangeListener {
 		if (hasFocus) {
 			editText.setText(Calculations.validateStringInput(editText
 					.getText().toString()));
-
 		} else {
 			if (editText.getText().length() > 0) {
 				editText.setText(Calculations.validateStringInput(editText
 						.getText().toString())
-						+ v.getContext().getResources().getString(R.string._c));
+						+ v.getContext().getResources()
+								.getString(R.string._ohm_mm_m));
 			}
 		}
 	}
-
 }

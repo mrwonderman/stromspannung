@@ -3,6 +3,7 @@ package net.yscs.android.stromundspannung;
 import java.util.ArrayList;
 
 import net.yscs.android.stromundspannung.facuslisteners.GradOnFocusChangeListener;
+import net.yscs.android.stromundspannung.facuslisteners.KelvinOnFocusChangeListener;
 import net.yscs.android.stromundspannung.facuslisteners.OhmOnFocusChangeListener;
 import net.yscs.android.stromundspannung.model.Koeffizient;
 import android.app.Fragment;
@@ -32,6 +33,8 @@ public class WiderstandsaenderungTemp extends Fragment implements
 
 		Spinner spinner = (Spinner) view.findViewById(R.id.spinner1);
 		material = (EditText) view.findViewById(R.id.material);
+		material.setOnFocusChangeListener(new KelvinOnFocusChangeListener(
+				material));
 		anfangstemp = (EditText) view.findViewById(R.id.anfangs_temp);
 		anfangstemp.setOnFocusChangeListener(new GradOnFocusChangeListener(
 				anfangstemp));

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.yscs.android.stromundspannung.facuslisteners.MeterOnFocusChangeListener;
 import net.yscs.android.stromundspannung.facuslisteners.Millimeter2OnFocusChangeListener;
+import net.yscs.android.stromundspannung.facuslisteners.OhmMillimeter2OnFocusChangeListener;
 import net.yscs.android.stromundspannung.model.Werkstoff;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -39,6 +40,9 @@ public class WiderstandElLeiter extends Fragment implements
 		querschnittText = (EditText) view.findViewById(R.id.elwiderquer);
 		resultText = (EditText) view.findViewById(R.id.elwidererg);
 		spezwiderText = (EditText) view.findViewById(R.id.elwiderspez);
+		spezwiderText
+				.setOnFocusChangeListener(new OhmMillimeter2OnFocusChangeListener(
+						spezwiderText));
 
 		mal2 = (Button) view.findViewById(R.id.mal2);
 		mal2.setEnabled(false);
@@ -99,7 +103,7 @@ public class WiderstandElLeiter extends Fragment implements
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-
+				// nothing to do here =)
 			}
 		});
 
@@ -108,8 +112,13 @@ public class WiderstandElLeiter extends Fragment implements
 			@Override
 			public void onClick(View v) {
 				if (laengeText.getText().length() > 0) {
-					laengeText.setText(String.valueOf(Calculations
-							.mal2(laengeText.getText().toString())));
+					String result = String.valueOf(Calculations.mal2(laengeText
+							.getText().toString()));
+					if (!laengeText.isFocused()) {
+						laengeText.setText(result + getString(R.string._m));
+					} else {
+						laengeText.setText(result);
+					}
 					calculateAndDisplay();
 				}
 			}
