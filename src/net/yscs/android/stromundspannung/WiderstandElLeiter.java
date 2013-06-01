@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.yscs.android.stromundspannung.facuslisteners.MeterOnFocusChangeListener;
 import net.yscs.android.stromundspannung.facuslisteners.Millimeter2OnFocusChangeListener;
+import net.yscs.android.stromundspannung.model.Werkstoff;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -109,6 +110,7 @@ public class WiderstandElLeiter extends Fragment implements
 				if (laengeText.getText().length() > 0) {
 					laengeText.setText(String.valueOf(Calculations
 							.mal2(laengeText.getText().toString())));
+					calculateAndDisplay();
 				}
 			}
 		});
@@ -147,6 +149,7 @@ public class WiderstandElLeiter extends Fragment implements
 							querschnittText.setText(result);
 						}
 						dialog.dismiss();
+						calculateAndDisplay();
 					}
 				});
 				Button button = (Button) yourCustomView
@@ -183,13 +186,20 @@ public class WiderstandElLeiter extends Fragment implements
 			public void onClick(View v) {
 				clearUiFields();
 			}
-
 		});
-
 		return view;
 	}
 
-	private void calculateAndDisplay() {
+	@Override
+	public void clearUiFields() {
+		laengeText.setText("");
+		querschnittText.setText("");
+		resultText.setText("");
+		spezwiderText.setText("");
+	}
+
+	@Override
+	public void calculateAndDisplay() {
 		if (laengeText.length() > 0 && querschnittText.length() > 0
 				&& spezwiderText.length() > 0) {
 			String laenge = laengeText.getText().toString();
@@ -200,41 +210,5 @@ public class WiderstandElLeiter extends Fragment implements
 			resultText.setText(Calculations.calcElWiderstand(widerstand,
 					laenge, querschnitt) + " Ohm");
 		}
-	}
-
-	public class Werkstoff {
-		String Werkstoff;
-		double widerstand;
-
-		public Werkstoff(String werkstoff, double widerstand) {
-			super();
-			Werkstoff = werkstoff;
-			this.widerstand = widerstand;
-		}
-
-		public String getWerkstoff() {
-			return Werkstoff;
-		}
-
-		public void setWerkstoff(String werkstoff) {
-			Werkstoff = werkstoff;
-		}
-
-		public double getWiderstand() {
-			return widerstand;
-		}
-
-		public void setWiderstand(double widerstand) {
-			this.widerstand = widerstand;
-		}
-
-	}
-
-	@Override
-	public void clearUiFields() {
-		laengeText.setText("");
-		querschnittText.setText("");
-		resultText.setText("");
-		spezwiderText.setText("");
 	}
 }

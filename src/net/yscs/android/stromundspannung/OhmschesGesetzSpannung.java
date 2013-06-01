@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class OhmschesGesetzSpannung extends Fragment {
+public class OhmschesGesetzSpannung extends Fragment implements
+		StructuredUiFragment {
 
 	private EditText spannungStromText, spannungWiderstandText, ergSpannung;
 
@@ -29,20 +30,7 @@ public class OhmschesGesetzSpannung extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (spannungStromText.getText().length() > 0
-						&& spannungWiderstandText.getText().length() > 0) {
-					String strom = spannungStromText.getText().toString();
-					String widerstand = spannungWiderstandText.getText()
-							.toString();
-
-					spannungStromText.setText(Calculations
-							.validateStringInput(strom) + " A");
-					spannungWiderstandText.setText(Calculations
-							.validateStringInput(widerstand) + " Ohm");
-
-					ergSpannung.setText(String.valueOf(Calculations
-							.clacSpannung(strom, widerstand)) + " V");
-				}
+				calculateAndDisplay();
 			}
 
 		});
@@ -52,16 +40,35 @@ public class OhmschesGesetzSpannung extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				clearUIFields();
+				clearUiFields();
 			}
 
 		});
 		return view;
 	}
 
-	private void clearUIFields() {
+	@Override
+	public void clearUiFields() {
 		spannungStromText.setText("");
 		spannungWiderstandText.setText("");
 		ergSpannung.setText("");
+
+	}
+
+	@Override
+	public void calculateAndDisplay() {
+		if (spannungStromText.getText().length() > 0
+				&& spannungWiderstandText.getText().length() > 0) {
+			String strom = spannungStromText.getText().toString();
+			String widerstand = spannungWiderstandText.getText().toString();
+
+			spannungStromText.setText(Calculations.validateStringInput(strom)
+					+ " A");
+			spannungWiderstandText.setText(Calculations
+					.validateStringInput(widerstand) + " Ohm");
+
+			ergSpannung.setText(String.valueOf(Calculations.clacSpannung(strom,
+					widerstand)) + " V");
+		}
 	}
 }

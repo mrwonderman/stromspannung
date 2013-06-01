@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.yscs.android.stromundspannung.facuslisteners.GradOnFocusChangeListener;
 import net.yscs.android.stromundspannung.facuslisteners.OhmOnFocusChangeListener;
+import net.yscs.android.stromundspannung.model.Koeffizient;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,7 +18,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class WiderstandsaenderungTemp extends Fragment {
+public class WiderstandsaenderungTemp extends Fragment implements
+		StructuredUiFragment {
+
+	private EditText material, anfangstemp, anfangswiderstand, betriebstemp,
+			betriebswiderstand;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,44 +31,34 @@ public class WiderstandsaenderungTemp extends Fragment {
 				container, false);
 
 		Spinner spinner = (Spinner) view.findViewById(R.id.spinner1);
-
-		final EditText material = (EditText) view.findViewById(R.id.material);
-
-		final EditText anfangstemp = (EditText) view
-				.findViewById(R.id.anfangs_temp);
+		material = (EditText) view.findViewById(R.id.material);
+		anfangstemp = (EditText) view.findViewById(R.id.anfangs_temp);
 		anfangstemp.setOnFocusChangeListener(new GradOnFocusChangeListener(
 				anfangstemp));
-
-		final EditText anfangswiderstand = (EditText) view
+		anfangswiderstand = (EditText) view
 				.findViewById(R.id.anfangs_widerstand);
 		anfangswiderstand
 				.setOnFocusChangeListener(new OhmOnFocusChangeListener(
 						anfangswiderstand));
-
-		final EditText betriebstemp = (EditText) view
-				.findViewById(R.id.betriebs_temp);
+		betriebstemp = (EditText) view.findViewById(R.id.betriebs_temp);
 		betriebstemp.setOnFocusChangeListener(new GradOnFocusChangeListener(
 				betriebstemp));
-
-		final EditText betriebswiderstand = (EditText) view
+		betriebswiderstand = (EditText) view
 				.findViewById(R.id.betriebs_widerstand);
 		betriebswiderstand
 				.setOnFocusChangeListener(new OhmOnFocusChangeListener(
 						betriebswiderstand));
 
 		final ArrayList<Koeffizient> koeffiziente = new ArrayList<Koeffizient>();
-		koeffiziente.add(new Koeffizient("Kupfer", 0.004));
 		koeffiziente.add(new Koeffizient("Aluminium", 0.004));
-		koeffiziente.add(new Koeffizient("Konstantan", 0.0001));
 		koeffiziente.add(new Koeffizient("Blei", 0.0038));
-		koeffiziente.add(new Koeffizient("Kohle", -0.0003));
+		koeffiziente.add(new Koeffizient("Kupfer", 0.004));
 		koeffiziente.add(new Koeffizient("Wolfram", 0.0051));
 
 		ArrayList<String> dropdownKoeffiziente = new ArrayList<String>();
 		for (Koeffizient koeffizient : koeffiziente) {
 			dropdownKoeffiziente.add(koeffizient.getName());
 		}
-		// Collections.sort(dropdownKoeffiziente);
 
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -71,11 +66,12 @@ public class WiderstandsaenderungTemp extends Fragment {
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				material.setText(koeffiziente.get(arg2).getKelvin() + " K");
+				calculateAndDisplay();
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-
+				// nothing to do here =)
 			}
 		});
 
@@ -118,81 +114,70 @@ public class WiderstandsaenderungTemp extends Fragment {
 			}
 		});
 
-		Button button = (Button) view
+		Button berechnen = (Button) view
 				.findViewById(R.id.ersatzwiderstandberechen);
-		button.setOnClickListener(new OnClickListener() {
+		berechnen.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				if ((anfangstemp.getText().length() > 0)
-						&& (anfangswiderstand.getText().length() > 0)
-						&& (betriebstemp.getText().length() > 0)) {
-					betriebswiderstand.setText(Calculations
-							.calcBEtriebsWiderstand(anfangstemp.getText()
-									.toString(), anfangswiderstand.getText()
-									.toString(), betriebstemp.getText()
-									.toString(), material.getText().toString())
-							+ " Ohm");
-				} else if ((anfangstemp.getText().length() > 0)
-						&& (betriebstemp.getText().length() > 0)
-						&& (betriebswiderstand.getText().length() > 0)) {
-					anfangswiderstand.setText(Calculations
-							.calcAnfangswiderstand(anfangstemp.getText()
-									.toString(), betriebstemp.getText()
-									.toString(), betriebswiderstand.getText()
-									.toString(), material.getText().toString())
-							+ " Ohm");
-				} else if ((anfangstemp.getText().length() > 0)
-						&& (anfangswiderstand.getText().length() > 0)
-						&& (betriebswiderstand.getText().length() > 0)) {
-					betriebstemp.setText(Calculations.calcBetriebsTemperatur(
-							anfangstemp.getText().toString(), anfangswiderstand
-									.getText().toString(), betriebswiderstand
-									.getText().toString(), material.getText()
-									.toString())
-							+ " ¡C");
-				} else if ((anfangswiderstand.getText().length() > 0)
-						&& (betriebstemp.getText().length() > 0)
-						&& (betriebswiderstand.getText().length() > 0)) {
-					anfangstemp.setText(Calculations.calcAnfangsTemperatur(
-							anfangswiderstand.getText().toString(),
-							betriebstemp.getText().toString(),
-							betriebswiderstand.getText().toString(), material
-									.getText().toString())
-							+ " ¡C");
-				}
+				calculateAndDisplay();
+			}
+		});
+
+		Button loeschen = (Button) view.findViewById(R.id.del4);
+		loeschen.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				clearUiFields();
 			}
 		});
 		anfangstemp.setText("20¡C");
 		return view;
 	}
-}
 
-class Koeffizient {
-
-	private String name;
-	private double kelvin;
-
-	public Koeffizient(String name, double kelvin) {
-		super();
-		this.name = name;
-		this.kelvin = kelvin;
+	@Override
+	public void clearUiFields() {
+		anfangstemp.setText("");
+		anfangswiderstand.setText("");
+		betriebstemp.setText("");
+		betriebswiderstand.setText("");
 	}
 
-	public String getName() {
-		return name;
+	@Override
+	public void calculateAndDisplay() {
+		if ((anfangstemp.getText().length() > 0)
+				&& (anfangswiderstand.getText().length() > 0)
+				&& (betriebstemp.getText().length() > 0)) {
+			betriebswiderstand.setText(Calculations.calcBEtriebsWiderstand(
+					anfangstemp.getText().toString(), anfangswiderstand
+							.getText().toString(), betriebstemp.getText()
+							.toString(), material.getText().toString())
+					+ " Ohm");
+		} else if ((anfangstemp.getText().length() > 0)
+				&& (betriebstemp.getText().length() > 0)
+				&& (betriebswiderstand.getText().length() > 0)) {
+			anfangswiderstand.setText(Calculations.calcAnfangswiderstand(
+					anfangstemp.getText().toString(), betriebstemp.getText()
+							.toString(), betriebswiderstand.getText()
+							.toString(), material.getText().toString())
+					+ " Ohm");
+		} else if ((anfangstemp.getText().length() > 0)
+				&& (anfangswiderstand.getText().length() > 0)
+				&& (betriebswiderstand.getText().length() > 0)) {
+			betriebstemp.setText(Calculations.calcBetriebsTemperatur(
+					anfangstemp.getText().toString(), anfangswiderstand
+							.getText().toString(), betriebswiderstand.getText()
+							.toString(), material.getText().toString())
+					+ " ¡C");
+		} else if ((anfangswiderstand.getText().length() > 0)
+				&& (betriebstemp.getText().length() > 0)
+				&& (betriebswiderstand.getText().length() > 0)) {
+			anfangstemp.setText(Calculations.calcAnfangsTemperatur(
+					anfangswiderstand.getText().toString(), betriebstemp
+							.getText().toString(), betriebswiderstand.getText()
+							.toString(), material.getText().toString())
+					+ " ¡C");
+		}
 	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public double getKelvin() {
-		return kelvin;
-	}
-
-	public void setKelvin(double kelvin) {
-		this.kelvin = kelvin;
-	}
-
 }

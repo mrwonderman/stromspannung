@@ -4,4 +4,6 @@ public interface StructuredUiFragment {
 
 	void clearUiFields();
 
+	void calculateAndDisplay();
+
 }

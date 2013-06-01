@@ -33,11 +33,7 @@ public class ErsatzRTwo extends Fragment implements StructuredUiFragment {
 
 			@Override
 			public void onClick(View v) {
-				if (r1.length() > 0 && r2.getText().length() > 0) {
-					result.setText(String.valueOf(Calculations.calcR2(r1
-							.getText().toString(), r2.getText().toString()))
-							+ " Ohm");
-				}
+				calculateAndDisplay();
 			}
 		});
 
@@ -60,4 +56,12 @@ public class ErsatzRTwo extends Fragment implements StructuredUiFragment {
 		result.setText("");
 	}
 
+	@Override
+	public void calculateAndDisplay() {
+		if (r1.length() > 0 && r2.getText().length() > 0) {
+			result.setText(String.valueOf(Calculations.calcR2(r1.getText()
+					.toString(), r2.getText().toString()))
+					+ " Ohm");
+		}
+	}
 }
