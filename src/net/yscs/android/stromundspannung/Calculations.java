@@ -110,6 +110,16 @@ public class Calculations {
 		return roundUp((((d3 - d2) / (d2 * d4)) + d1));
 	}
 
+	public static double calcAnfangsTemperatur(String val1, String val2,
+			String val3, String val4) {
+		Double d1 = Double.parseDouble(validateStringInput(val1));
+		Double d2 = Double.parseDouble(validateStringInput(val2));
+		Double d3 = Double.parseDouble(validateStringInput(val3));
+		Double d4 = Double.parseDouble(validateStringInput(val4));
+
+		return roundUp(d2 - (d3 - d1) / (d1 * d4));
+	}
+
 	private static double roundUp(double d) {
 		BigDecimal result = new BigDecimal(d);
 		return result.setScale(ROUND, BigDecimal.ROUND_HALF_UP).doubleValue();

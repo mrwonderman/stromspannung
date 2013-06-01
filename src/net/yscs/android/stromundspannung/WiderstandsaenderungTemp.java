@@ -151,6 +151,15 @@ public class WiderstandsaenderungTemp extends Fragment {
 									.getText().toString(), material.getText()
 									.toString())
 							+ " ¡C");
+				} else if ((anfangswiderstand.getText().length() > 0)
+						&& (betriebstemp.getText().length() > 0)
+						&& (betriebswiderstand.getText().length() > 0)) {
+					anfangstemp.setText(Calculations.calcAnfangsTemperatur(
+							anfangswiderstand.getText().toString(),
+							betriebstemp.getText().toString(),
+							betriebswiderstand.getText().toString(), material
+									.getText().toString())
+							+ " ¡C");
 				}
 			}
 		});
