@@ -75,7 +75,8 @@ public class ErsatzRGesamtRn extends Fragment implements StructuredUiFragment {
 	@Override
 	public void clearUiFields() {
 		listOfRs.clear();
-		rns.setText("noch keine Widerstände hinzugefügt.");
+		rns.setText(this.getResources().getString(
+				R.string.default_nochnichthinzugefuegt));
 		result.setText("");
 
 	}
