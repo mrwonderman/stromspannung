@@ -8,103 +8,111 @@
     android:paddingRight="16dp"
     android:paddingTop="8dp" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:paddingTop="8dp"
+        android:text="@string/berechung_widerstand"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/textView10"
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView10"
+        android:layout_below="@+id/textView10"
+        android:text="@string/berechung_widerstand_beschreibung" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_below="@+id/textView15"
+        android:text="@string/berechnung"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/ergWiderstandSpannung"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView03"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:inputType="number|numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergWiderstandSpannung"
+        android:layout_alignBottom="@+id/ergWiderstandSpannung"
+        android:layout_alignLeft="@+id/TextView03"
+        android:text="@string/spannung" />
+
+    <EditText
+        android:id="@+id/ergWiderstandStrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ergWiderstandSpannung"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ergWiderstandSpannung"
+        android:ems="10"
+        android:inputType="number|numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergWiderstandStrom"
+        android:layout_alignBottom="@+id/ergWiderstandStrom"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="@string/strom" />
+
+    <EditText
+        android:id="@+id/ergebnisWiderstand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ergWiderstandStrom"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ergWiderstandStrom"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="number|numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergebnisWiderstand"
+        android:layout_alignBottom="@+id/ergebnisWiderstand"
+        android:layout_alignLeft="@+id/textView2"
+        android:text="@string/ergebnis" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ergebnisWiderstand"
+        android:layout_below="@+id/ergebnisWiderstand"
+        android:paddingBottom="8dp" >
+
+        <Button
+            android:id="@+id/del3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:text="@string/berechung_widerstand"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="@string/loeschen" />
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/berechung_widerstand_beschreibung" />
-
-        <TextView
-            android:id="@+id/TextView03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/berechnung"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <LinearLayout
+        <Button
+            android:id="@+id/berechnenWiderstand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" >
-
-                    <EditText
-                        android:id="@+id/ergWiderstandSpannung"
-                        android:layout_width="140dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/spannung_u"
-                        android:inputType="number|numberDecimal" />
-
-                    <TextView
-                        android:id="@+id/TextView04"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/divider"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                    <EditText
-                        android:id="@+id/ergWiderstandStrom"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/strom_i"
-                        android:inputType="number|numberDecimal" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/ergebnisWiderstand"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:inputType="number|numberDecimal" >
-
-                <requestFocus />
-            </EditText>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp" >
-
-                <Button
-                    android:id="@+id/del3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/loeschen" />
-
-                <Button
-                    android:id="@+id/berechnenWiderstand"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/berechnen" />
-            </LinearLayout>
-        </LinearLayout>
+            android:text="@string/berechnen" />
     </LinearLayout>
 
 </RelativeLayout>

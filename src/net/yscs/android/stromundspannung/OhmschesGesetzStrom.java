@@ -1,5 +1,7 @@
 package net.yscs.android.stromundspannung;
 
+import net.yscs.android.stromundspannung.facuslisteners.OhmOnFocusChangeListener;
+import net.yscs.android.stromundspannung.facuslisteners.VoltOnFocusChangeListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,8 +27,14 @@ public class OhmschesGesetzStrom extends Fragment implements
 				.inflate(R.layout.calculate_strom, container, false);
 
 		stromSpannungText = (EditText) view.findViewById(R.id.ergStromSpannung);
+		stromSpannungText
+				.setOnFocusChangeListener(new VoltOnFocusChangeListener(
+						stromSpannungText));
 		stromWiderstandText = (EditText) view
 				.findViewById(R.id.ergStromWiderstand);
+		stromWiderstandText
+				.setOnFocusChangeListener(new OhmOnFocusChangeListener(
+						stromWiderstandText));
 		ergStrom = (EditText) view.findViewById(R.id.ergebnisStrom);
 
 		mACalculator = (CheckBox) view.findViewById(R.id.mAConverter);
@@ -95,11 +103,6 @@ public class OhmschesGesetzStrom extends Fragment implements
 			String spannung = stromSpannungText.getText().toString();
 			String widerstand = stromWiderstandText.getText().toString();
 
-			stromSpannungText.setText(Calculations
-					.validateStringInput(spannung) + getString(R.string._v));
-			stromWiderstandText
-					.setText(Calculations.validateStringInput(widerstand)
-							+ getString(R.string._ohm));
 			ergStrom.setText(String.valueOf(Calculations.calcStrom(spannung,
 					widerstand)) + getString(R.string._a));
 			mACalculator.setEnabled(true);

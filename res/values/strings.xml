@@ -113,5 +113,8 @@
     <string name="querschnitt_symbol">Ø</string>
     <string name="abbrechen">Abbrechen</string>
     <string name="radius_">Radius:</string>
+    <string name="strom">Strom :</string>
+    <string name="widerstand">Widerstand :</string>
+    <string name="spannung">Spannung :</string>
 
 </resources>

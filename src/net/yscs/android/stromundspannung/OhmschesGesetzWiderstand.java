@@ -1,5 +1,7 @@
 package net.yscs.android.stromundspannung;
 
+import net.yscs.android.stromundspannung.facuslisteners.AmpereOnFocusChangeListener;
+import net.yscs.android.stromundspannung.facuslisteners.VoltOnFocusChangeListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,8 +25,14 @@ public class OhmschesGesetzWiderstand extends Fragment implements
 
 		widerstandSpannungText = (EditText) view
 				.findViewById(R.id.ergWiderstandSpannung);
+		widerstandSpannungText
+				.setOnFocusChangeListener(new VoltOnFocusChangeListener(
+						widerstandSpannungText));
 		widerstandStromText = (EditText) view
 				.findViewById(R.id.ergWiderstandStrom);
+		widerstandStromText
+				.setOnFocusChangeListener(new AmpereOnFocusChangeListener(
+						widerstandStromText));
 		ergWiderstand = (EditText) view.findViewById(R.id.ergebnisWiderstand);
 
 		Button berechnen = (Button) view.findViewById(R.id.berechnenWiderstand);
@@ -62,11 +70,6 @@ public class OhmschesGesetzWiderstand extends Fragment implements
 				&& widerstandStromText.getText().length() > 0) {
 			String spannung = widerstandSpannungText.getText().toString();
 			String strom = widerstandStromText.getText().toString();
-
-			widerstandSpannungText.setText(Calculations
-					.validateStringInput(spannung) + getString(R.string._v));
-			widerstandStromText.setText(Calculations.validateStringInput(strom)
-					+ getString(R.string._a));
 
 			ergWiderstand.setText(String.valueOf(Calculations.calcWiderstand(
 					spannung, strom)) + getString(R.string._ohm));

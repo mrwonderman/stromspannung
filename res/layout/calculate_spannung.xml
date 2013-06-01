@@ -40,10 +40,10 @@
         android:id="@+id/ergSpannungStrom"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/ergSpannungWiderstand"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/TextView02"
         android:ems="10"
-        android:hint="@string/strom_i"
         android:inputType="number|numberDecimal" >
 
         <requestFocus />
@@ -53,7 +53,8 @@
         android:id="@+id/ergebnisSpannung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/ergSpannungWiderstand"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/ergSpannungWiderstand"
         android:ems="10"
         android:focusable="false"
@@ -77,26 +78,49 @@
         android:layout_toRightOf="@+id/del2"
         android:text="@string/berechnen" />
 
-    <TextView
-        android:id="@+id/TextView01"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ergSpannungStrom"
-        android:layout_alignBottom="@+id/ergSpannungStrom"
-        android:layout_toRightOf="@+id/ergSpannungStrom"
-        android:text="@string/multiplicator"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_below="@+id/del2"
+        android:layout_marginTop="85dp"
+        android:layout_toRightOf="@+id/del2" >
+    </LinearLayout>
 
     <EditText
         android:id="@+id/ergSpannungWiderstand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ergSpannungStrom"
+        android:layout_toRightOf="@+id/textView2"
+        android:ems="10"
+        android:inputType="number|numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/ergSpannungStrom"
         android:layout_alignBottom="@+id/ergSpannungStrom"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/TextView01"
-        android:ems="10"
-        android:hint="@string/widerstand_r"
-        android:inputType="number|numberDecimal" />
+        android:layout_alignLeft="@+id/TextView02"
+        android:text="@string/strom" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergSpannungWiderstand"
+        android:layout_alignBottom="@+id/ergSpannungWiderstand"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="@string/widerstand" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergebnisSpannung"
+        android:layout_alignBottom="@+id/ergebnisSpannung"
+        android:layout_alignLeft="@+id/del2"
+        android:text="@string/ergebnis" />
 
 </RelativeLayout>
