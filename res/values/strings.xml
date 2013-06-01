@@ -32,7 +32,7 @@
 
     <!-- Widerstandsänderung -->
     <string name="berechnung_widerstandsaenderung">Berechnung Widerstandsänderung</string>
-    <string name="berechnung_widerstandsaenderung_beschreibung">Berechnung der Widerstandsänderung mit der Temparatur.</string>
+    <string name="berechnung_widerstandsaenderung_beschreibung">Berechnung der Widerstandsänderung mit der Temperatur.</string>
 
     <!-- navigation drawer -->
     <string name="drawer_open">Open navigation drawer</string>
@@ -88,7 +88,7 @@
     <string name="material">Material:</string>
     <string name="anfangstemperatur">Anfangstemperatur :</string>
     <string name="anfangswiderstand">Anfangswiderstand :</string>
-    <string name="betriebstemperartur">Betriebstemperartur :</string>
+    <string name="betriebstemperartur">Betriebstemperatur :</string>
     <string name="betriebswiderstand">Betriebswiderstand :</string>
     <string name="aluminium">Aluminium</string>
     <string name="blei">Blei</string>
