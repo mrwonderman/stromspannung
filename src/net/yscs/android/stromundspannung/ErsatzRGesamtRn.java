@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class ErsatzRGesamtRn extends Fragment {
+public class ErsatzRGesamtRn extends Fragment implements StructuredUiFragment {
 
 	private EditText result, rn;
 	private TextView rns;
@@ -48,10 +48,7 @@ public class ErsatzRGesamtRn extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (listOfRs.size() > 0) {
-					result.setText(String.valueOf(Calculations
-							.calcRErsatzBeiRn(listOfRs)) + " Ohm");
-				}
+				calculateAndDisplay();
 			}
 		});
 
@@ -60,9 +57,7 @@ public class ErsatzRGesamtRn extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				listOfRs.clear();
-				rns.setText("noch keine WiderstŠnde hinzugefŸgt.");
-				result.setText("");
+				clearUiFields();
 			}
 		});
 		return view;
@@ -73,8 +68,23 @@ public class ErsatzRGesamtRn extends Fragment {
 		for (Double d : listOfRs) {
 			tmpString = tmpString + String.valueOf(d) + " , ";
 		}
-		// TODO remove last ,
-		rns.setText(tmpString);
+		rns.setText(tmpString.substring(0, tmpString.length() - 3));
 		rn.setText("");
+	}
+
+	@Override
+	public void clearUiFields() {
+		listOfRs.clear();
+		rns.setText("noch keine WiderstŠnde hinzugefŸgt.");
+		result.setText("");
+
+	}
+
+	@Override
+	public void calculateAndDisplay() {
+		if (listOfRs.size() > 0) {
+			result.setText(String.valueOf(Calculations
+					.calcRErsatzBeiRn(listOfRs)) + " Ohm");
+		}
 	}
 }
