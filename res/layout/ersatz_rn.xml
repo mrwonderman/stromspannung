@@ -29,43 +29,12 @@
         android:text="@string/berechnung_ersatzwiderstand_mehr2_beschreibung"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TextView11" >
-
-        <EditText
-            android:id="@+id/addRn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/addRnButton"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/addRnButton"
-            android:ems="10"
-            android:inputType="numberDecimal" >
-
-            <requestFocus />
-        </EditText>
-
-        <Button
-            android:id="@+id/addRnButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:drawableLeft="@android:drawable/ic_input_add"
-            android:text="@string/hinzufuegen" />
-    </RelativeLayout>
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/relativeLayout1"
-        android:layout_below="@+id/relativeLayout1"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/addRnButton"
         android:paddingTop="8dp"
         android:text="@string/hinzugefuegte_widerstaende"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -75,56 +44,78 @@
         android:id="@+id/rnns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_alignLeft="@+id/textView5"
         android:layout_below="@+id/textView5"
         android:text="@string/default_nochnichthinzugefuegt" />
 
-    <RelativeLayout
+    <Button
+        android:id="@+id/addRnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView11"
+        android:drawableLeft="@android:drawable/ic_input_add"
+        android:text="@string/hinzufuegen" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addRnButton"
+        android:layout_alignBottom="@+id/addRnButton"
+        android:layout_alignParentLeft="true"
+        android:text="@string/widerstand" />
+
+    <EditText
+        android:id="@+id/addRn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toLeftOf="@+id/addRnButton"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/ewider3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addRn"
+        android:layout_alignRight="@+id/rnns"
+        android:layout_below="@+id/rnns"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/TextView08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ewider3"
+        android:layout_alignBottom="@+id/ewider3"
+        android:layout_alignLeft="@+id/rnns"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="@string/ergebnis" />
+
+    <Button
+        android:id="@+id/berechnen3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rnns"
-        android:layout_below="@+id/rnns" >
+        android:layout_alignRight="@+id/ewider3"
+        android:layout_below="@+id/ewider3"
+        android:layout_toRightOf="@+id/del6"
+        android:text="@string/berechnen" />
 
-        <TextView
-            android:id="@+id/TextView08"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignBottom="@+id/ewider3"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/ewider3"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="@string/ergebnis" />
-
-        <EditText
-            android:id="@+id/ewider3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:ems="10"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:inputType="numberDecimal" />
-
-        <Button
-            android:id="@+id/berechnen3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/ewider3"
-            android:layout_toRightOf="@+id/del6"
-            android:text="@string/berechnen" />
-
-        <Button
-            android:id="@+id/del6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/berechnen3"
-            android:layout_alignBottom="@+id/berechnen3"
-            android:layout_alignParentLeft="true"
-            android:text="@string/loeschen" />
-    </RelativeLayout>
+    <Button
+        android:id="@+id/del6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/berechnen3"
+        android:layout_alignBottom="@+id/berechnen3"
+        android:layout_alignParentLeft="true"
+        android:text="@string/loeschen" />
 
 </RelativeLayout>

@@ -1,109 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="8dp"
-    android:scrollbarAlwaysDrawVerticalTrack="true"
-    android:scrollbars="vertical" >
+    android:paddingTop="8dp" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/el_widerstand_beschreibung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:text="@string/berechnung_r2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/el_widerstand_beschreibung"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_below="@+id/el_widerstand_beschreibung"
+        android:text="@string/berechnung_r2_beschreibung"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ewider"
+        android:layout_alignBottom="@+id/ewider"
+        android:layout_alignParentLeft="true"
+        android:text="@string/ergebnis" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/r2"
+        android:layout_alignBottom="@+id/r2"
+        android:layout_alignParentLeft="true"
+        android:text="@string/r1" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/r1"
+        android:layout_alignBottom="@+id/r1"
+        android:layout_alignParentLeft="true"
+        android:text="@string/rgesamt" />
+
+    <EditText
+        android:id="@+id/r2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/r1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/r1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/r1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView3"
+        android:layout_toRightOf="@+id/textView4"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/ewider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/r2"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/r2"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ewider"
+        android:layout_below="@+id/ewider" >
+
+        <Button
+            android:id="@+id/del4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/berechnung_r2"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:text="@string/loeschen" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/ersatzwiderstandberechen"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/berechnung_r2_beschreibung"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rgesamt" />
-
-            <EditText
-                android:id="@+id/r1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/TextView01"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/r1" />
-
-            <EditText
-                android:id="@+id/r2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/TextView05"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/ergebnis" />
-
-            <EditText
-                android:id="@+id/ewider"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/del4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/loeschen" />
-
-            <Button
-                android:id="@+id/ersatzwiderstandberechen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/berechnen" />
-        </LinearLayout>
+            android:text="@string/berechnen" />
     </LinearLayout>
 
 </RelativeLayout>

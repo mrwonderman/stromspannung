@@ -29,80 +29,73 @@
         android:text="@string/berechnung_rgesamt_beschreibung"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/r11"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView03"
-        android:layout_below="@+id/TextView03" >
+        android:layout_alignLeft="@+id/r22"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView03"
+        android:ems="10"
+        android:inputType="numberDecimal" >
 
-        <TextView
-            android:id="@+id/TextView04"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/r1" />
+        <requestFocus />
+    </EditText>
 
-        <EditText
-            android:id="@+id/r11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_below="@+id/linearLayout1"
-        android:orientation="horizontal" >
+        android:layout_alignBaseline="@+id/r11"
+        android:layout_alignBottom="@+id/r11"
+        android:layout_alignParentLeft="true"
+        android:text="@string/r1" />
 
-        <TextView
-            android:id="@+id/r223"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/r2" />
-
-        <EditText
-            android:id="@+id/r22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/r22"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout2"
-        android:layout_below="@+id/linearLayout2" >
+        android:layout_alignLeft="@+id/ewider2"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/r11"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
-        <TextView
-            android:id="@+id/TextView06"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/ergebnis" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/r22"
+        android:layout_alignBottom="@+id/r22"
+        android:layout_alignParentLeft="true"
+        android:text="@string/r2" />
 
-        <EditText
-            android:id="@+id/ewider2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:inputType="numberDecimal" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/ewider2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/r22"
+        android:layout_toRightOf="@+id/textView3"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ewider2"
+        android:layout_alignBottom="@+id/ewider2"
+        android:layout_alignParentLeft="true"
+        android:text="@string/rgesamt" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout3"
-        android:layout_below="@+id/linearLayout3" >
+        android:layout_alignRight="@+id/ewider2"
+        android:layout_below="@+id/ewider2" >
 
         <Button
             android:id="@+id/del5"
