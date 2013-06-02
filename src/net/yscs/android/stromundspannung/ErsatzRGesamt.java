@@ -17,7 +17,7 @@ public class ErsatzRGesamt extends Fragment implements StructuredUiFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.ersetz_rgesamt, container, false);
+		View view = inflater.inflate(R.layout.ersatz_rgesamt, container, false);
 
 		result = (EditText) view.findViewById(R.id.ewider2);
 		r1 = (EditText) view.findViewById(R.id.r11);

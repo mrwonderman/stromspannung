@@ -17,7 +17,7 @@ public class ErsatzRTwo extends Fragment implements StructuredUiFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.ersetz_rtwo, container, false);
+		View view = inflater.inflate(R.layout.ersatz_rtwo, container, false);
 
 		result = (EditText) view.findViewById(R.id.ewider);
 
