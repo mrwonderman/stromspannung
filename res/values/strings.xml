@@ -29,10 +29,10 @@
     <!-- Widerstand el. Leiter -->
     <string name="berechnung_widerstandelleiter">Widerstand el. Leiter</string>
     <string name="berechnung_widerstandelleiter_beschreibung">Wenn der Temperatureinfluss nicht berücksichtigt wird, ist der Widerstand eines Drahtes proportional zur Länge und zum spezifischen Widerstand und umgekehrt proportional zum Querschnitt.</string>
-    
+
     <!-- Widerstandsänderung -->
     <string name="berechnung_widerstandsaenderung">Berechnung Widerstandsänderung</string>
-    <string name="berechnung_widerstandsaenderung_beschreibung">Berechnung der Widerstandsänderung mit der Temparatur.</string>
+    <string name="berechnung_widerstandsaenderung_beschreibung">Berechnung der Widerstandsänderung mit der Temperatur.</string>
 
     <!-- navigation drawer -->
     <string name="drawer_open">Open navigation drawer</string>
@@ -66,9 +66,6 @@
     </string-array>
 
     <!-- various things -->
-    <string name="strom_i">Strom (I)</string>
-    <string name="widerstand_r">Widerstand (R)</string>
-    <string name="spannung_u">Spannung (U)</string>
     <string name="rgesamt">RGesamt :</string>
     <string name="r1">R1 :</string>
     <string name="r2">R2 :</string>
@@ -78,8 +75,6 @@
     <string name="hinzufuegen">add</string>
     <string name="default_nochnichthinzugefuegt">noch keine Widerstände hinzugefügt.</string>
     <string name="berechnung">Berechnung</string>
-    <string name="multiplicator">*</string>
-    <string name="divider">/</string>
     <string name="ma">mA</string>
     <string name="spezifischer_widerstand">Spezifischer Widerstand (entweder via Dropdown oder direkte Eingabe):</string>
     <string name="laenge">Länge :</string>
@@ -88,7 +83,33 @@
     <string name="material">Material:</string>
     <string name="anfangstemperatur">Anfangstemperatur :</string>
     <string name="anfangswiderstand">Anfangswiderstand :</string>
-    <string name="betriebstemperartur">Betriebstemperartur :</string>
+    <string name="betriebstemperartur">Betriebstemperatur :</string>
     <string name="betriebswiderstand">Betriebswiderstand :</string>
+    <string name="aluminium">Aluminium</string>
+    <string name="blei">Blei</string>
+    <string name="kupfer">Kupfer</string>
+    <string name="wolfram">Wolfram</string>
+    <string name="_ohm">" Ohm"</string>
+    <string name="_c">" °C"</string>
+    <string name="_20_c">20°C</string>
+    <string name="_k">" K"</string>
+    <string name="_mm_">" mm²"</string>
+    <string name="_ohm_mm_m">" Ohm mm²/m"</string>
+    <string name="radius_eingeben">Radius eingeben</string>
+    <string name="bronze">Bronze</string>
+    <string name="chromnickel">Chromnickel</string>
+    <string name="konstantan">Konstantan</string>
+    <string name="silber">Silber</string>
+    <string name="_v">" V"</string>
+    <string name="_a">" A"</string>
+    <string name="_m">" m"</string>
+    <string name="_ma">" mA"</string>
+    <string name="x2">x2</string>
+    <string name="querschnitt_symbol">Ø</string>
+    <string name="abbrechen">Abbrechen</string>
+    <string name="radius_">Radius:</string>
+    <string name="strom">Strom :</string>
+    <string name="widerstand">Widerstand :</string>
+    <string name="spannung">Spannung :</string>
 
 </resources>

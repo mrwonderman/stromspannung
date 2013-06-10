@@ -1,6 +1,7 @@
 package net.yscs.android.stromundspannung.focuslisteners;
 
 import net.yscs.android.stromundspannung.Calculations;
+import net.yscs.android.stromundspannung.R;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
@@ -22,7 +23,9 @@ public class GradOnFocusChangeListener implements OnFocusChangeListener {
 
 		} else {
 			if (editText.getText().length() > 0) {
-				editText.setText(editText.getText() + " ¡C");
+				editText.setText(Calculations.validateStringInput(editText
+						.getText().toString())
+						+ v.getContext().getResources().getString(R.string._c));
 			}
 		}
 	}

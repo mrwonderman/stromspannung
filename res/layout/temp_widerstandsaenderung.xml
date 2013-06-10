@@ -34,14 +34,6 @@
         android:text="@string/berechnung_widerstandsaenderung_beschreibung"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/material"
-        android:layout_alignTop="@+id/material"
-        android:layout_toRightOf="@+id/material" />
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
@@ -131,7 +123,6 @@
         android:layout_alignLeft="@+id/anfangs_widerstand"
         android:layout_below="@+id/spinner1"
         android:layout_toLeftOf="@+id/temp_del_1"
-        android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
 
@@ -142,7 +133,6 @@
         android:layout_alignLeft="@+id/betriebs_temp"
         android:layout_alignTop="@+id/linearLayout5"
         android:layout_toLeftOf="@+id/temp_del_1"
-        android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
 
@@ -153,7 +143,6 @@
         android:layout_below="@+id/anfangs_widerstand"
         android:layout_toLeftOf="@+id/temp_del_2"
         android:layout_toRightOf="@+id/linearLayout4"
-        android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
 
@@ -164,7 +153,6 @@
         android:layout_alignLeft="@+id/betriebs_temp"
         android:layout_alignTop="@+id/linearLayout6"
         android:layout_toLeftOf="@+id/temp_del_4"
-        android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
 
@@ -222,5 +210,14 @@
         android:layout_alignTop="@+id/betriebs_widerstand"
         android:layout_toRightOf="@+id/betriebs_temp"
         android:drawableLeft="@android:drawable/ic_delete" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/material"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/material"
+        android:layout_toRightOf="@+id/material" />
 
 </RelativeLayout>

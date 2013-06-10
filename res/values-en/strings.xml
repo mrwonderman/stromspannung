@@ -1,0 +1,115 @@
+<resources>
+
+    <string name="app_name">Current and Voltage</string>
+
+    <!-- Berechnung R2 -->
+    <string name="berechnung_r2">Calculation of R2"</string>
+    <string name="berechnung_r2_beschreibung">The calculation of R2 on the basis of the parallel resistance.</string>
+
+    <!-- Berechnung von RGesamt -->
+    <string name="berechnung_rgesamt">Calculation parallel resistance</string>
+    <string name="berechnung_rgesamt_beschreibung">The calculation of the parallel resistance with resistors.</string>
+
+    <!-- RGesamt bei Rn -->
+    <string name="berechnung_rgesamtbeirn">Parallel resistance with Rn</string>
+    <string name="berechnung_ersatzwiderstand_mehr2_beschreibung">The calculation of the parallel resistance with an unlimited number of resistors.</string>
+
+    <!-- Die elektrische Spannung -->
+    <string name="berechnung_spannung">The electric voltage</string>
+    <string name="berechnung_spannung_beschreibung">The voltage is the electric power (pressure) which drives the electrons through the closed electric circuit.</string>
+
+    <!-- Der elektrische Strom -->
+    <string name="berechnung_strom">The electric current</string>
+    <string name="berechnung_strom_beschreibung">The electric current is in fact a flow of particles, like a stream of water in a pipe.</string>
+
+    <!-- Der elektrische Widerstand -->
+    <string name="berechung_widerstand">The electrical resistance</string>
+    <string name="berechung_widerstand_beschreibung">The resistance impedes the flow of electrons of a conductor. It depends on the material and the dimensions of the conductor.</string>
+
+    <!-- Widerstand el. Leiter -->
+    <string name="berechnung_widerstandelleiter">Resistance el. conductor</string>
+    <string name="berechnung_widerstandelleiter_beschreibung">If the temperature effect is not considered, the resistance of a wire is proportional to the length and the resistivity and inversely proportional to the cross-section.</string>
+
+    <!-- Widerstandsänderung -->
+    <string name="berechnung_widerstandsaenderung">Calculation of the change of resistance</string>
+    <string name="berechnung_widerstandsaenderung_beschreibung">The calculation of the change of resistance with the temperature.</string>
+
+    <!-- navigation drawer -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string-array name="drawer_titel">
+        <item>Ohms law</item>
+        <item>Current</item>
+        <item>Voltage</item>
+        <item>Resistance</item>
+        <item>Parallel resistance</item>
+        <item>Calculation R2</item>
+        <item>Calculation RTotal</item>
+        <item>RTotal with Rn</item>
+        <item>Resistance</item>
+        <item>Electrical resistance</item>
+        <item>Resistance temperature</item>
+    </string-array>
+    <string-array name="drawer_descriptions">
+        <item></item>
+        <item>Calculation current</item>
+        <item>Calculation voltage</item>
+        <item>Calculation resistance</item>
+        <item></item>
+        <item>Calculation of the 2. resistor</item>
+        <item>Calculation of RTotal</item>
+        <item>Calculation of RTotal with Rn</item>
+        <item></item>
+        <item>Calculation of the resistance</item>
+        <item>Calculation with the temerature</item>
+    </string-array>
+
+    <!-- various things -->
+    <string name="rgesamt">RGesamt :</string>
+    <string name="r1">R1 :</string>
+    <string name="r2">R2 :</string>
+    <string name="ergebnis">Result :</string>
+    <string name="loeschen">Delete</string>
+    <string name="berechnen">Calculate</string>
+    <string name="hinzufuegen">add</string>
+    <string name="default_nochnichthinzugefuegt">no resistors added at the moment.</string>
+    <string name="berechnung">Calculation</string>
+    <string name="ma">mA</string>
+    <string name="spezifischer_widerstand">Specific material (choose via Dropdown or write it):</string>
+    <string name="laenge">Length :</string>
+    <string name="querschnitt">Cross-section :</string>
+    <string name="hinzugefuegte_widerstaende">Added resistors :</string>
+    <string name="material">Material: </string>
+    <string name="anfangstemperatur">Initial temperature :</string>
+    <string name="anfangswiderstand">Initial resistance :</string>
+    <string name="betriebstemperartur">Operating temperature :</string>
+    <string name="betriebswiderstand">Operating resistance :</string>
+    <string name="aluminium">Aluminum</string>
+    <string name="blei">Lead</string>
+    <string name="kupfer">Kopper</string>
+    <string name="wolfram">Tungsten</string>
+    <string name="_ohm">" Ohm"</string>
+    <string name="_c">" °C"</string>
+    <string name="_20_c">20°C</string>
+    <string name="_k">" K"</string>
+    <string name="_mm_">" mm²"</string>
+    <string name="_ohm_mm_m">" Ohm mm²/m"</string>
+    <string name="radius_eingeben">Enter the radius</string>
+    <string name="bronze">Bronze</string>
+    <string name="chromnickel">Chromium-nickel</string>
+    <string name="konstantan">Constantan</string>
+    <string name="silber">Silver</string>
+    <string name="_v">" V"</string>
+    <string name="_a">" A"</string>
+    <string name="_m">" m"</string>
+    <string name="_ma">" mA"</string>
+    <string name="x2">x2</string>
+    <string name="querschnitt_symbol">Ø</string>
+    <string name="abbrechen">Cancel</string>
+    <string name="radius_">Radius:</string>
+    <string name="strom">Current :</string>
+    <string name="widerstand">Resistance :</string>
+    <string name="spannung">Voltage :</string>
+
+</resources>

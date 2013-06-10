@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
@@ -10,110 +11,117 @@
     android:scrollbarAlwaysDrawVerticalTrack="true"
     android:scrollbars="vertical" >
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/el_widerstand_beschreibung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:paddingTop="8dp"
+        android:text="@string/berechnung_strom"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <LinearLayout
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/el_widerstand_beschreibung"
+        android:layout_below="@+id/el_widerstand_beschreibung"
+        android:text="@string/berechnung_strom_beschreibung" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_below="@+id/textView13"
+        android:text="@string/berechnung"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/ergStromSpannung"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ergStromWiderstand"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView17"
+        android:ems="10"
+        android:inputType="number|numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergStromSpannung"
+        android:layout_alignBottom="@+id/ergStromSpannung"
+        android:layout_alignLeft="@+id/textView17"
+        android:text="@string/spannung" />
+
+    <EditText
+        android:id="@+id/ergStromWiderstand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ergStromSpannung"
+        android:layout_toRightOf="@+id/textView2"
+        android:ems="10"
+        android:inputType="number|numberDecimal" />
+
+    <EditText
+        android:id="@+id/ergebnisStrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ergStromWiderstand"
+        android:layout_below="@+id/ergStromWiderstand"
+        android:layout_toLeftOf="@+id/mAConverter"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="number|numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergStromWiderstand"
+        android:layout_alignBottom="@+id/ergStromWiderstand"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="@string/widerstand" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergebnisStrom"
+        android:layout_alignBottom="@+id/ergebnisStrom"
+        android:layout_alignLeft="@+id/textView2"
+        android:text="@string/ergebnis" />
+
+    <CheckBox
+        android:id="@+id/mAConverter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ergebnisStrom"
+        android:layout_alignBottom="@+id/ergebnisStrom"
+        android:layout_alignRight="@+id/textView13"
+        android:text="@string/ma" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/mAConverter"
+        android:layout_below="@+id/ergebnisStrom" >
+
+        <Button
+            android:id="@+id/del1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loeschen" />
+
+        <Button
+            android:id="@+id/berechnenStrom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/el_widerstand_beschreibung"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="8dp"
-                android:text="@string/berechnung_strom"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/berechnung_strom_beschreibung" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/berechnung"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <EditText
-                        android:id="@+id/ergStromSpannung"
-                        android:layout_width="140dp"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/spannung_u"
-                        android:inputType="number|numberDecimal" />
-
-                    <TextView
-                        android:id="@+id/textView16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/divider"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-                    <EditText
-                        android:id="@+id/ergStromWiderstand"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/widerstand_r"
-                        android:inputType="number|numberDecimal" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <EditText
-                        android:id="@+id/ergebnisStrom"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
-                        android:inputType="number|numberDecimal" />
-
-                    <CheckBox
-                        android:id="@+id/mAConverter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/ma" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <Button
-                        android:id="@+id/del1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/loeschen" />
-
-                    <Button
-                        android:id="@+id/berechnenStrom"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/berechnen" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
+            android:text="@string/berechnen" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -30,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/elwiderspez"
+        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/elwiderspez"
         android:layout_toRightOf="@+id/elwiderspez" />
 
@@ -107,7 +108,6 @@
         android:layout_alignLeft="@+id/elwiderquer"
         android:layout_below="@+id/elwiderspinner"
         android:layout_toLeftOf="@+id/mal2"
-        android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
 
@@ -118,7 +118,6 @@
         android:layout_alignTop="@+id/elwider3"
         android:layout_toLeftOf="@+id/durchmesser"
         android:layout_toRightOf="@+id/elwider3"
-        android:layout_weight="1"
         android:ems="10"
         android:inputType="numberDecimal" />
 
@@ -129,7 +128,6 @@
         android:layout_alignLeft="@+id/elwiderquer"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/elwiderquer"
-        android:layout_weight="1"
         android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
@@ -161,7 +159,7 @@
         android:layout_alignBottom="@+id/elwiderlaenge"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/elwiderlaenge"
-        android:text="x2" />
+        android:text="@string/x2" />
 
     <Button
         android:id="@+id/durchmesser"
@@ -170,6 +168,6 @@
         android:layout_alignBottom="@+id/elwiderquer"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/mal2"
-        android:text="Ø" />
+        android:text="@string/querschnitt_symbol" />
 
 </RelativeLayout>

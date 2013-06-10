@@ -17,7 +17,7 @@ public class ErsatzRGesamt extends Fragment implements StructuredUiFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.ersetz_rgesamt, container, false);
+		View view = inflater.inflate(R.layout.ersatz_rgesamt, container, false);
 
 		result = (EditText) view.findViewById(R.id.ewider2);
 		r1 = (EditText) view.findViewById(R.id.r11);
@@ -31,11 +31,7 @@ public class ErsatzRGesamt extends Fragment implements StructuredUiFragment {
 
 			@Override
 			public void onClick(View v) {
-				if (r1.length() > 0 && r2.length() > 0) {
-					result.setText(String.valueOf(Calculations.calcRGEsamt(r1
-							.getText().toString(), r2.getText().toString()))
-							+ " Ohm");
-				}
+				calculateAndDisplay();
 			}
 		});
 
@@ -57,5 +53,14 @@ public class ErsatzRGesamt extends Fragment implements StructuredUiFragment {
 		r2.setText("");
 		result.setText("");
 
+	}
+
+	@Override
+	public void calculateAndDisplay() {
+		if (r1.length() > 0 && r2.length() > 0) {
+			result.setText(String.valueOf(Calculations.calcRGEsamt(r1.getText()
+					.toString(), r2.getText().toString()))
+					+ getString(R.string._ohm));
+		}
 	}
 }

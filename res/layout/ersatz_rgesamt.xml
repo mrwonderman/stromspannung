@@ -6,42 +6,38 @@
     android:focusableInTouchMode="true"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="8dp" >
+    android:paddingTop="8dp"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:scrollbars="vertical" >
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/TextView02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:paddingTop="8dp"
-        android:text="@string/berechung_widerstand"
+        android:text="@string/berechnung_rgesamt"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView10"
-        android:layout_below="@+id/textView10"
-        android:text="@string/berechung_widerstand_beschreibung" />
 
     <TextView
         android:id="@+id/TextView03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView15"
-        android:layout_below="@+id/textView15"
-        android:text="@string/berechnung"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextView02"
+        android:text="@string/berechnung_rgesamt_beschreibung"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <EditText
-        android:id="@+id/ergWiderstandSpannung"
-        android:layout_width="140dp"
+        android:id="@+id/r11"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/r22"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/TextView03"
-        android:layout_toRightOf="@+id/textView1"
         android:ems="10"
-        android:inputType="number|numberDecimal" >
+        android:inputType="numberDecimal" >
 
         <requestFocus />
     </EditText>
@@ -50,68 +46,68 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ergWiderstandSpannung"
-        android:layout_alignBottom="@+id/ergWiderstandSpannung"
-        android:layout_alignLeft="@+id/TextView03"
-        android:text="@string/spannung" />
+        android:layout_alignBaseline="@+id/r11"
+        android:layout_alignBottom="@+id/r11"
+        android:layout_alignParentLeft="true"
+        android:text="@string/r1" />
 
     <EditText
-        android:id="@+id/ergWiderstandStrom"
+        android:id="@+id/r22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/ergWiderstandSpannung"
+        android:layout_alignLeft="@+id/ewider2"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/ergWiderstandSpannung"
+        android:layout_below="@+id/r11"
         android:ems="10"
-        android:inputType="number|numberDecimal" />
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ergWiderstandStrom"
-        android:layout_alignBottom="@+id/ergWiderstandStrom"
-        android:layout_alignLeft="@+id/textView1"
-        android:text="@string/strom" />
+        android:layout_alignBaseline="@+id/r22"
+        android:layout_alignBottom="@+id/r22"
+        android:layout_alignParentLeft="true"
+        android:text="@string/r2" />
 
     <EditText
-        android:id="@+id/ergebnisWiderstand"
-        android:layout_width="match_parent"
+        android:id="@+id/ewider2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/ergWiderstandStrom"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/ergWiderstandStrom"
+        android:layout_below="@+id/r22"
+        android:layout_toRightOf="@+id/textView3"
         android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:inputType="number|numberDecimal" />
+        android:inputType="numberDecimal" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ergebnisWiderstand"
-        android:layout_alignBottom="@+id/ergebnisWiderstand"
-        android:layout_alignLeft="@+id/textView2"
-        android:text="@string/ergebnis" />
+        android:layout_alignBaseline="@+id/ewider2"
+        android:layout_alignBottom="@+id/ewider2"
+        android:layout_alignParentLeft="true"
+        android:text="@string/rgesamt" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/ergebnisWiderstand"
-        android:layout_below="@+id/ergebnisWiderstand"
-        android:paddingBottom="8dp" >
+        android:layout_alignRight="@+id/ewider2"
+        android:layout_below="@+id/ewider2" >
 
         <Button
-            android:id="@+id/del3"
+            android:id="@+id/del5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loeschen" />
 
         <Button
-            android:id="@+id/berechnenWiderstand"
+            android:id="@+id/berechnen2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="@string/berechnen" />
     </LinearLayout>
 

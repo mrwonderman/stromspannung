@@ -1,19 +1,21 @@
 package net.yscs.android.stromundspannung;
 
+import net.yscs.android.stromundspannung.facuslisteners.OhmOnFocusChangeListener;
+import net.yscs.android.stromundspannung.facuslisteners.VoltOnFocusChangeListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import net.yscs.android.stromundspannung.R;
+import android.widget.EditText;
 
-public class OhmschesGesetzStrom extends Fragment {
+public class OhmschesGesetzStrom extends Fragment implements
+		StructuredUiFragment {
 
 	private EditText stromSpannungText, stromWiderstandText, ergStrom;
 	private CheckBox mACalculator;
@@ -25,8 +27,14 @@ public class OhmschesGesetzStrom extends Fragment {
 				.inflate(R.layout.calculate_strom, container, false);
 
 		stromSpannungText = (EditText) view.findViewById(R.id.ergStromSpannung);
+		stromSpannungText
+				.setOnFocusChangeListener(new VoltOnFocusChangeListener(
+						stromSpannungText));
 		stromWiderstandText = (EditText) view
 				.findViewById(R.id.ergStromWiderstand);
+		stromWiderstandText
+				.setOnFocusChangeListener(new OhmOnFocusChangeListener(
+						stromWiderstandText));
 		ergStrom = (EditText) view.findViewById(R.id.ergebnisStrom);
 
 		mACalculator = (CheckBox) view.findViewById(R.id.mAConverter);
@@ -46,10 +54,10 @@ public class OhmschesGesetzStrom extends Fragment {
 								.parseDouble(validateStringInput);
 						if (isChecked) {
 							ergStrom.setText(String.valueOf(parseDouble * 1000)
-									+ " mA");
+									+ getString(R.string._ma));
 						} else {
 							ergStrom.setText(String.valueOf(parseDouble / 1000)
-									+ " A");
+									+ getString(R.string._a));
 						}
 					}
 				}
@@ -62,21 +70,7 @@ public class OhmschesGesetzStrom extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (stromSpannungText.getText().length() > 0
-						&& stromWiderstandText.getText().length() > 0) {
-					String spannung = stromSpannungText.getText().toString();
-					String widerstand = stromWiderstandText.getText()
-							.toString();
-
-					stromSpannungText.setText(Calculations
-							.validateStringInput(spannung) + " V");
-					stromWiderstandText.setText(Calculations
-							.validateStringInput(widerstand) + " Ohm");
-					ergStrom.setText(String.valueOf(Calculations.calcStrom(
-							spannung, widerstand)) + " A");
-					mACalculator.setEnabled(true);
-
-				}
+				calculateAndDisplay();
 			}
 		});
 
@@ -85,18 +79,34 @@ public class OhmschesGesetzStrom extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				clearUIFields();
+				clearUiFields();
 			}
 
 		});
 		return view;
 	}
 
-	private void clearUIFields() {
+	@Override
+	public void clearUiFields() {
 		stromSpannungText.setText("");
 		stromWiderstandText.setText("");
 		ergStrom.setText("");
 		mACalculator.setChecked(false);
 		mACalculator.setEnabled(false);
+
+	}
+
+	@Override
+	public void calculateAndDisplay() {
+		if (stromSpannungText.getText().length() > 0
+				&& stromWiderstandText.getText().length() > 0) {
+			String spannung = stromSpannungText.getText().toString();
+			String widerstand = stromWiderstandText.getText().toString();
+
+			ergStrom.setText(String.valueOf(Calculations.calcStrom(spannung,
+					widerstand)) + getString(R.string._a));
+			mACalculator.setEnabled(true);
+
+		}
 	}
 }

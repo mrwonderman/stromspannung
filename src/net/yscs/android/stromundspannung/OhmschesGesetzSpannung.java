@@ -1,5 +1,7 @@
 package net.yscs.android.stromundspannung;
 
+import net.yscs.android.stromundspannung.facuslisteners.AmpereOnFocusChangeListener;
+import net.yscs.android.stromundspannung.facuslisteners.OhmOnFocusChangeListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class OhmschesGesetzSpannung extends Fragment {
+public class OhmschesGesetzSpannung extends Fragment implements
+		StructuredUiFragment {
 
 	private EditText spannungStromText, spannungWiderstandText, ergSpannung;
 
@@ -19,8 +22,14 @@ public class OhmschesGesetzSpannung extends Fragment {
 		View view = inflater.inflate(R.layout.calculate_spannung, container,
 				false);
 		spannungStromText = (EditText) view.findViewById(R.id.ergSpannungStrom);
+		spannungStromText
+				.setOnFocusChangeListener(new AmpereOnFocusChangeListener(
+						spannungStromText));
 		spannungWiderstandText = (EditText) view
 				.findViewById(R.id.ergSpannungWiderstand);
+		spannungWiderstandText
+				.setOnFocusChangeListener(new OhmOnFocusChangeListener(
+						spannungWiderstandText));
 		ergSpannung = (EditText) view.findViewById(R.id.ergebnisSpannung);
 
 		Button berechnenSpannungButton = (Button) view
@@ -29,20 +38,7 @@ public class OhmschesGesetzSpannung extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (spannungStromText.getText().length() > 0
-						&& spannungWiderstandText.getText().length() > 0) {
-					String strom = spannungStromText.getText().toString();
-					String widerstand = spannungWiderstandText.getText()
-							.toString();
-
-					spannungStromText.setText(Calculations
-							.validateStringInput(strom) + " A");
-					spannungWiderstandText.setText(Calculations
-							.validateStringInput(widerstand) + " Ohm");
-
-					ergSpannung.setText(String.valueOf(Calculations
-							.clacSpannung(strom, widerstand)) + " V");
-				}
+				calculateAndDisplay();
 			}
 
 		});
@@ -52,16 +48,30 @@ public class OhmschesGesetzSpannung extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				clearUIFields();
+				clearUiFields();
 			}
 
 		});
 		return view;
 	}
 
-	private void clearUIFields() {
+	@Override
+	public void clearUiFields() {
 		spannungStromText.setText("");
 		spannungWiderstandText.setText("");
 		ergSpannung.setText("");
+
+	}
+
+	@Override
+	public void calculateAndDisplay() {
+		if (spannungStromText.getText().length() > 0
+				&& spannungWiderstandText.getText().length() > 0) {
+			String strom = spannungStromText.getText().toString();
+			String widerstand = spannungWiderstandText.getText().toString();
+
+			ergSpannung.setText(String.valueOf(Calculations.clacSpannung(strom,
+					widerstand)) + getString(R.string._v));
+		}
 	}
 }

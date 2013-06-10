@@ -17,7 +17,7 @@ public class ErsatzRTwo extends Fragment implements StructuredUiFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.ersetz_rtwo, container, false);
+		View view = inflater.inflate(R.layout.ersatz_rtwo, container, false);
 
 		result = (EditText) view.findViewById(R.id.ewider);
 
@@ -33,11 +33,7 @@ public class ErsatzRTwo extends Fragment implements StructuredUiFragment {
 
 			@Override
 			public void onClick(View v) {
-				if (r1.length() > 0 && r2.getText().length() > 0) {
-					result.setText(String.valueOf(Calculations.calcR2(r1
-							.getText().toString(), r2.getText().toString()))
-							+ " Ohm");
-				}
+				calculateAndDisplay();
 			}
 		});
 
@@ -60,4 +56,12 @@ public class ErsatzRTwo extends Fragment implements StructuredUiFragment {
 		result.setText("");
 	}
 
+	@Override
+	public void calculateAndDisplay() {
+		if (r1.length() > 0 && r2.getText().length() > 0) {
+			result.setText(String.valueOf(Calculations.calcR2(r1.getText()
+					.toString(), r2.getText().toString()))
+					+ getString(R.string._ohm));
+		}
+	}
 }

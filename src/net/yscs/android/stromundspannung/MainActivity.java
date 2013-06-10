@@ -113,7 +113,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public int getCount() {
-				return 10;
+				return 11;
 			}
 		};
 		drawerListView.setAdapter(adapter);
@@ -192,9 +192,9 @@ public class MainActivity extends Activity {
 		case 9:
 			fragment = new WiderstandElLeiter();
 			break;
-		// case 10:
-		// fragment = new WiderstandsaenderungTemp();
-		// break;
+		case 10:
+			fragment = new WiderstandsaenderungTemp();
+			break;
 		default:
 			fragment = new OhmschesGesetzStrom();
 			break;
