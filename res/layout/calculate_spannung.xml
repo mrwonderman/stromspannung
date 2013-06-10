@@ -78,14 +78,6 @@
         android:layout_toRightOf="@+id/del2"
         android:text="@string/berechnen" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/del2"
-        android:layout_marginTop="85dp"
-        android:layout_toRightOf="@+id/del2" >
-    </LinearLayout>
-
     <EditText
         android:id="@+id/ergSpannungWiderstand"
         android:layout_width="wrap_content"

@@ -96,7 +96,6 @@
         android:layout_alignBaseline="@+id/ewider3"
         android:layout_alignBottom="@+id/ewider3"
         android:layout_alignLeft="@+id/rnns"
-        android:layout_weight="1"
         android:gravity="center_vertical"
         android:text="@string/ergebnis" />
 

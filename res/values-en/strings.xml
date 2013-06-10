@@ -66,9 +66,6 @@
     </string-array>
 
     <!-- various things -->
-    <string name="strom_i">Current (I)</string>
-    <string name="widerstand_r">Resistance (R)</string>
-    <string name="spannung_u">Voltage (U)</string>
     <string name="rgesamt">RGesamt :</string>
     <string name="r1">R1 :</string>
     <string name="r2">R2 :</string>
@@ -78,8 +75,6 @@
     <string name="hinzufuegen">add</string>
     <string name="default_nochnichthinzugefuegt">no resistors added at the moment.</string>
     <string name="berechnung">Calculation</string>
-    <string name="multiplicator">*</string>
-    <string name="divider">/</string>
     <string name="ma">mA</string>
     <string name="spezifischer_widerstand">Specific material (choose via Dropdown or write it):</string>
     <string name="laenge">Length :</string>
