@@ -1,7 +1,7 @@
 package net.yscs.android.stromundspannung;
 
-import net.yscs.android.stromundspannung.facuslisteners.OhmOnFocusChangeListener;
-import net.yscs.android.stromundspannung.facuslisteners.VoltOnFocusChangeListener;
+import net.yscs.android.stromundspannung.focuslisteners.OhmOnFocusChangeListener;
+import net.yscs.android.stromundspannung.focuslisteners.VoltOnFocusChangeListener;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

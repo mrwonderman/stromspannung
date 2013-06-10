@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import net.yscs.android.stromundspannung.focuslisteners.MeterOnFocusChangeListener;
 import net.yscs.android.stromundspannung.focuslisteners.Millimeter2OnFocusChangeListener;
+import net.yscs.android.stromundspannung.focuslisteners.OhmMillimeter2OnFocusChangeListener;
+import net.yscs.android.stromundspannung.model.Werkstoff;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -38,6 +40,9 @@ public class WiderstandElLeiter extends Fragment implements
 		querschnittText = (EditText) view.findViewById(R.id.elwiderquer);
 		resultText = (EditText) view.findViewById(R.id.elwidererg);
 		spezwiderText = (EditText) view.findViewById(R.id.elwiderspez);
+		spezwiderText
+				.setOnFocusChangeListener(new OhmMillimeter2OnFocusChangeListener(
+						spezwiderText));
 
 		mal2 = (Button) view.findViewById(R.id.mal2);
 		mal2.setEnabled(false);
@@ -74,12 +79,12 @@ public class WiderstandElLeiter extends Fragment implements
 						querschnittText));
 
 		final ArrayList<Werkstoff> werkstoffe = new ArrayList<Werkstoff>();
-		werkstoffe.add(new Werkstoff("Aluminium", 0.029));
-		werkstoffe.add(new Werkstoff("Bronze", 0.0185));
-		werkstoffe.add(new Werkstoff("Chromnickel", 1.1));
-		werkstoffe.add(new Werkstoff("Konstantan", 0.5));
-		werkstoffe.add(new Werkstoff("Kupfer", 0.0175));
-		werkstoffe.add(new Werkstoff("Silber", 0.0169));
+		werkstoffe.add(new Werkstoff(getString(R.string.aluminium), 0.029));
+		werkstoffe.add(new Werkstoff(getString(R.string.bronze), 0.0185));
+		werkstoffe.add(new Werkstoff(getString(R.string.chromnickel), 1.1));
+		werkstoffe.add(new Werkstoff(getString(R.string.konstantan), 0.5));
+		werkstoffe.add(new Werkstoff(getString(R.string.kupfer), 0.0175));
+		werkstoffe.add(new Werkstoff(getString(R.string.silber), 0.0169));
 
 		ArrayList<String> dropdownWerkstoffe = new ArrayList<String>();
 		for (Werkstoff werkstoff : werkstoffe) {
@@ -92,13 +97,13 @@ public class WiderstandElLeiter extends Fragment implements
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				spezwiderText.setText(String.valueOf(werkstoffe.get(arg2)
-						.getWiderstand()) + " Ohm mm²/m");
+						.getWiderstand()) + getString(R.string._ohm_mm_m));
 				calculateAndDisplay();
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-
+				// nothing to do here =)
 			}
 		});
 
@@ -107,8 +112,14 @@ public class WiderstandElLeiter extends Fragment implements
 			@Override
 			public void onClick(View v) {
 				if (laengeText.getText().length() > 0) {
-					laengeText.setText(String.valueOf(Calculations
-							.mal2(laengeText.getText().toString())));
+					String result = String.valueOf(Calculations.mal2(laengeText
+							.getText().toString()));
+					if (!laengeText.isFocused()) {
+						laengeText.setText(result + getString(R.string._m));
+					} else {
+						laengeText.setText(result);
+					}
+					calculateAndDisplay();
 				}
 			}
 		});
@@ -126,7 +137,8 @@ public class WiderstandElLeiter extends Fragment implements
 				final EditText editText = (EditText) yourCustomView
 						.findViewById(R.id.radius_eingabe);
 				final AlertDialog dialog = new AlertDialog.Builder(
-						getActivity()).setTitle("Radius eingeben")
+						getActivity())
+						.setTitle(getString(R.string.radius_eingeben))
 						.setView(yourCustomView).create();
 				final Button berechnen = (Button) yourCustomView
 						.findViewById(R.id.berechnenDialog);
@@ -142,11 +154,13 @@ public class WiderstandElLeiter extends Fragment implements
 						String result = String.valueOf(Calculations
 								.calcQuerschnitt(editText.getText().toString()));
 						if (!querschnittText.isFocused()) {
-							querschnittText.setText(result + " mm²");
+							querschnittText.setText(result
+									+ getString(R.string._mm_));
 						} else {
 							querschnittText.setText(result);
 						}
 						dialog.dismiss();
+						calculateAndDisplay();
 					}
 				});
 				Button button = (Button) yourCustomView
@@ -183,51 +197,8 @@ public class WiderstandElLeiter extends Fragment implements
 			public void onClick(View v) {
 				clearUiFields();
 			}
-
 		});
-
 		return view;
-	}
-
-	private void calculateAndDisplay() {
-		if (laengeText.length() > 0 && querschnittText.length() > 0
-				&& spezwiderText.length() > 0) {
-			String laenge = laengeText.getText().toString();
-			String querschnitt = querschnittText.getText().toString();
-			String widerstand = spezwiderText.getText().toString();
-			spezwiderText.setText(Calculations.validateStringInput(widerstand)
-					+ " Ohm mm²/m");
-			resultText.setText(Calculations.calcElWiderstand(widerstand,
-					laenge, querschnitt) + " Ohm");
-		}
-	}
-
-	public class Werkstoff {
-		String Werkstoff;
-		double widerstand;
-
-		public Werkstoff(String werkstoff, double widerstand) {
-			super();
-			Werkstoff = werkstoff;
-			this.widerstand = widerstand;
-		}
-
-		public String getWerkstoff() {
-			return Werkstoff;
-		}
-
-		public void setWerkstoff(String werkstoff) {
-			Werkstoff = werkstoff;
-		}
-
-		public double getWiderstand() {
-			return widerstand;
-		}
-
-		public void setWiderstand(double widerstand) {
-			this.widerstand = widerstand;
-		}
-
 	}
 
 	@Override
@@ -235,6 +206,19 @@ public class WiderstandElLeiter extends Fragment implements
 		laengeText.setText("");
 		querschnittText.setText("");
 		resultText.setText("");
-		spezwiderText.setText("");
+	}
+
+	@Override
+	public void calculateAndDisplay() {
+		if (laengeText.length() > 0 && querschnittText.length() > 0
+				&& spezwiderText.length() > 0) {
+			String laenge = laengeText.getText().toString();
+			String querschnitt = querschnittText.getText().toString();
+			String widerstand = spezwiderText.getText().toString();
+			spezwiderText.setText(Calculations.validateStringInput(widerstand)
+					+ getString(R.string._ohm_mm_m));
+			resultText.setText(Calculations.calcElWiderstand(widerstand,
+					laenge, querschnitt) + getString(R.string._ohm));
+		}
 	}
 }
