@@ -4,3 +4,15 @@ bin/*
 .DS_Store
 
 .settings/org.eclipse.core.resources.prefs
+
+gen/.gitignore
+
+.classpath
+
+gen/.gitignore
+
+project.properties
+
+.settings/org.eclipse.jdt.core.prefs
+
+.classpath

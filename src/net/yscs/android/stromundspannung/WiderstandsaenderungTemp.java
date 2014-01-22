@@ -2,6 +2,8 @@ package net.yscs.android.stromundspannung;
 
 import java.util.ArrayList;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+
 import net.yscs.android.stromundspannung.focuslisteners.GradOnFocusChangeListener;
 import net.yscs.android.stromundspannung.focuslisteners.KelvinOnFocusChangeListener;
 import net.yscs.android.stromundspannung.focuslisteners.OhmOnFocusChangeListener;
@@ -43,6 +45,10 @@ public class WiderstandsaenderungTemp extends Fragment implements
 		anfangswiderstand
 				.setOnFocusChangeListener(new OhmOnFocusChangeListener(
 						anfangswiderstand));
+
+		MainActivity.setTypeFaceForViewGroup(
+				(ViewGroup) anfangswiderstand.getRootView(), getActivity());
+
 		betriebstemp = (EditText) view.findViewById(R.id.betriebs_temp);
 		betriebstemp.setOnFocusChangeListener(new GradOnFocusChangeListener(
 				betriebstemp));
@@ -118,7 +124,7 @@ public class WiderstandsaenderungTemp extends Fragment implements
 			}
 		});
 
-		Button berechnen = (Button) view
+		BootstrapButton berechnen = (BootstrapButton) view
 				.findViewById(R.id.ersatzwiderstandberechen);
 		berechnen.setOnClickListener(new OnClickListener() {
 
@@ -128,7 +134,8 @@ public class WiderstandsaenderungTemp extends Fragment implements
 			}
 		});
 
-		Button loeschen = (Button) view.findViewById(R.id.del4);
+		BootstrapButton loeschen = (BootstrapButton) view
+				.findViewById(R.id.del4);
 		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override

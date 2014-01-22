@@ -3,7 +3,9 @@ package net.yscs.android.stromundspannung;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -225,5 +227,18 @@ public class MainActivity extends Activity {
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 		drawerToggle.onConfigurationChanged(newConfig);
+	}
+
+	public static void setTypeFaceForViewGroup(ViewGroup vg, Context context) {
+		for (int i = 0; i < vg.getChildCount(); i++) {
+			if (vg.getChildAt(i) instanceof ViewGroup) {
+				setTypeFaceForViewGroup((ViewGroup) vg.getChildAt(i), context);
+			} else if (vg.getChildAt(i) instanceof TextView) {
+				((TextView) vg.getChildAt(i)).setTypeface(Typeface
+						.createFromAsset(context.getAssets(),
+								"fonts/Roboto-Light.ttf"));
+			}
+		}
+
 	}
 }

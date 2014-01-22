@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
@@ -61,22 +63,27 @@
         android:focusableInTouchMode="false"
         android:inputType="number|numberDecimal" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/del2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/ergebnisSpannung"
-        android:text="@string/loeschen" />
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/loeschen"
+        fontawesometext:bb_type="danger" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/berechnenSpannung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/del2"
         android:layout_alignBottom="@+id/del2"
+        android:layout_marginTop="8dp"
         android:layout_toRightOf="@+id/del2"
-        android:text="@string/berechnen" />
+        android:text="@string/berechnen"
+        fontawesometext:bb_type="success" />
 
     <EditText
         android:id="@+id/ergSpannungWiderstand"
@@ -84,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/ergSpannungStrom"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_toRightOf="@+id/del2"
         android:ems="10"
         android:inputType="number|numberDecimal" />
 
@@ -92,27 +99,33 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ergSpannungStrom"
         android:layout_alignBottom="@+id/ergSpannungStrom"
         android:layout_alignLeft="@+id/TextView02"
+        android:layout_alignTop="@+id/ergSpannungStrom"
+        android:layout_toLeftOf="@+id/ergSpannungStrom"
+        android:gravity="center_vertical"
         android:text="@string/strom" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ergSpannungWiderstand"
         android:layout_alignBottom="@+id/ergSpannungWiderstand"
         android:layout_alignLeft="@+id/textView1"
+        android:layout_alignTop="@+id/ergSpannungWiderstand"
+        android:layout_toLeftOf="@+id/ergSpannungWiderstand"
+        android:gravity="center_vertical"
         android:text="@string/widerstand" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ergebnisSpannung"
         android:layout_alignBottom="@+id/ergebnisSpannung"
         android:layout_alignLeft="@+id/del2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignTop="@+id/ergebnisSpannung"
+        android:gravity="center_vertical"
         android:text="@string/ergebnis" />
 
 </RelativeLayout>

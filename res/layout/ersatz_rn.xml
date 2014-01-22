@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
@@ -99,22 +101,27 @@
         android:gravity="center_vertical"
         android:text="@string/ergebnis" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/berechnen3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/ewider3"
         android:layout_below="@+id/ewider3"
         android:layout_toRightOf="@+id/del6"
-        android:text="@string/berechnen" />
+        android:layout_marginTop="8dp"
+        android:text="@string/berechnen"
+        fontawesometext:bb_type="success" />
 
-    <Button
+    <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/del6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/berechnen3"
         android:layout_alignBottom="@+id/berechnen3"
+        android:layout_marginTop="8dp"
         android:layout_alignParentLeft="true"
-        android:text="@string/loeschen" />
+        android:layout_marginRight="8dp"
+        android:text="@string/loeschen"
+        fontawesometext:bb_type="danger" />
 
 </RelativeLayout>

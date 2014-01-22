@@ -8,8 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class OhmschesGesetzWiderstand extends Fragment implements
 		StructuredUiFragment {
@@ -25,6 +26,10 @@ public class OhmschesGesetzWiderstand extends Fragment implements
 
 		widerstandSpannungText = (EditText) view
 				.findViewById(R.id.ergWiderstandSpannung);
+		MainActivity
+				.setTypeFaceForViewGroup(
+						(ViewGroup) widerstandSpannungText.getRootView(),
+						getActivity());
 		widerstandSpannungText
 				.setOnFocusChangeListener(new VoltOnFocusChangeListener(
 						widerstandSpannungText));
@@ -35,7 +40,8 @@ public class OhmschesGesetzWiderstand extends Fragment implements
 						widerstandStromText));
 		ergWiderstand = (EditText) view.findViewById(R.id.ergebnisWiderstand);
 
-		Button berechnen = (Button) view.findViewById(R.id.berechnenWiderstand);
+		BootstrapButton berechnen = (BootstrapButton) view
+				.findViewById(R.id.berechnenWiderstand);
 		berechnen.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -44,7 +50,8 @@ public class OhmschesGesetzWiderstand extends Fragment implements
 			}
 		});
 
-		Button loeschen = (Button) view.findViewById(R.id.del3);
+		BootstrapButton loeschen = (BootstrapButton) view
+				.findViewById(R.id.del3);
 		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override

@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+
 public class ErsatzRGesamtRn extends Fragment implements StructuredUiFragment {
 
 	private EditText result, rn;
@@ -28,6 +30,10 @@ public class ErsatzRGesamtRn extends Fragment implements StructuredUiFragment {
 		listOfRs = new ArrayList<Double>();
 
 		result = (EditText) view.findViewById(R.id.ewider3);
+
+		MainActivity.setTypeFaceForViewGroup((ViewGroup) result.getRootView(),
+				getActivity());
+
 		rns = (TextView) view.findViewById(R.id.rnns);
 		rn = (EditText) view.findViewById(R.id.addRn);
 		addRn = (Button) view.findViewById(R.id.addRnButton);
@@ -43,7 +49,8 @@ public class ErsatzRGesamtRn extends Fragment implements StructuredUiFragment {
 
 		});
 
-		Button berechnen = (Button) view.findViewById(R.id.berechnen3);
+		BootstrapButton berechnen = (BootstrapButton) view
+				.findViewById(R.id.berechnen3);
 		berechnen.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -52,7 +59,8 @@ public class ErsatzRGesamtRn extends Fragment implements StructuredUiFragment {
 			}
 		});
 
-		Button loeschen = (Button) view.findViewById(R.id.del6);
+		BootstrapButton loeschen = (BootstrapButton) view
+				.findViewById(R.id.del6);
 		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override

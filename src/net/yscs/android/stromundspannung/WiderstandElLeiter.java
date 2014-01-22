@@ -22,6 +22,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
+
 public class WiderstandElLeiter extends Fragment implements
 		StructuredUiFragment {
 
@@ -43,6 +45,9 @@ public class WiderstandElLeiter extends Fragment implements
 		spezwiderText
 				.setOnFocusChangeListener(new OhmMillimeter2OnFocusChangeListener(
 						spezwiderText));
+
+		MainActivity.setTypeFaceForViewGroup(
+				(ViewGroup) laengeText.getRootView(), getActivity());
 
 		mal2 = (Button) view.findViewById(R.id.mal2);
 		mal2.setEnabled(false);
@@ -176,7 +181,8 @@ public class WiderstandElLeiter extends Fragment implements
 			}
 		});
 
-		Button berechnen = (Button) view.findViewById(R.id.elwider_berechnen);
+		BootstrapButton berechnen = (BootstrapButton) view
+				.findViewById(R.id.elwider_berechnen);
 		berechnen.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -190,7 +196,8 @@ public class WiderstandElLeiter extends Fragment implements
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 
-		Button loeschen = (Button) view.findViewById(R.id.elwider_del);
+		BootstrapButton loeschen = (BootstrapButton) view
+				.findViewById(R.id.elwider_del);
 		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override

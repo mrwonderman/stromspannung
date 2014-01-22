@@ -7,8 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class ErsatzRGesamt extends Fragment implements StructuredUiFragment {
 
@@ -22,11 +23,13 @@ public class ErsatzRGesamt extends Fragment implements StructuredUiFragment {
 		result = (EditText) view.findViewById(R.id.ewider2);
 		r1 = (EditText) view.findViewById(R.id.r11);
 		r2 = (EditText) view.findViewById(R.id.r22);
-
+		MainActivity.setTypeFaceForViewGroup((ViewGroup) result.getRootView(),
+				getActivity());
 		r1.setOnFocusChangeListener(new OhmOnFocusChangeListener(r1));
 		r2.setOnFocusChangeListener(new OhmOnFocusChangeListener(r2));
 
-		Button berechnen = (Button) view.findViewById(R.id.berechnen2);
+		BootstrapButton berechnen = (BootstrapButton) view
+				.findViewById(R.id.berechnen2);
 		berechnen.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -35,7 +38,8 @@ public class ErsatzRGesamt extends Fragment implements StructuredUiFragment {
 			}
 		});
 
-		Button leoschen = (Button) view.findViewById(R.id.del5);
+		BootstrapButton leoschen = (BootstrapButton) view
+				.findViewById(R.id.del5);
 		leoschen.setOnClickListener(new OnClickListener() {
 
 			@Override

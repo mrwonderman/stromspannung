@@ -8,11 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class OhmschesGesetzStrom extends Fragment implements
 		StructuredUiFragment {
@@ -27,6 +28,8 @@ public class OhmschesGesetzStrom extends Fragment implements
 				.inflate(R.layout.calculate_strom, container, false);
 
 		stromSpannungText = (EditText) view.findViewById(R.id.ergStromSpannung);
+		MainActivity.setTypeFaceForViewGroup(
+				(ViewGroup) stromSpannungText.getRootView(), getActivity());
 		stromSpannungText
 				.setOnFocusChangeListener(new VoltOnFocusChangeListener(
 						stromSpannungText));
@@ -64,7 +67,7 @@ public class OhmschesGesetzStrom extends Fragment implements
 			}
 		});
 
-		Button berechnenStromButton = (Button) view
+		BootstrapButton berechnenStromButton = (BootstrapButton) view
 				.findViewById(R.id.berechnenStrom);
 		berechnenStromButton.setOnClickListener(new OnClickListener() {
 
@@ -74,7 +77,8 @@ public class OhmschesGesetzStrom extends Fragment implements
 			}
 		});
 
-		Button loeschen = (Button) view.findViewById(R.id.del1);
+		BootstrapButton loeschen = (BootstrapButton) view
+				.findViewById(R.id.del1);
 		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override

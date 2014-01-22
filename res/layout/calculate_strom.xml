@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -99,9 +101,10 @@
         android:id="@+id/mAConverter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ergebnisStrom"
         android:layout_alignBottom="@+id/ergebnisStrom"
         android:layout_alignRight="@+id/textView13"
+        android:layout_below="@+id/ergStromWiderstand"
+        android:layout_centerVertical="true"
         android:text="@string/ma" />
 
     <LinearLayout
@@ -109,19 +112,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/mAConverter"
-        android:layout_below="@+id/ergebnisStrom" >
+        android:layout_below="@+id/ergebnisStrom"
+        android:layout_marginTop="8dp" >
 
-        <Button
+        <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/del1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/loeschen" />
+            android:layout_marginRight="8dp"
+            android:text="@string/loeschen"
+            fontawesometext:bb_type="danger" />
 
-        <Button
+        <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/berechnenStrom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/berechnen" />
+            android:text="@string/berechnen"
+            fontawesometext:bb_type="success" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -3,13 +3,16 @@ package net.yscs.android.stromundspannung;
 import net.yscs.android.stromundspannung.focuslisteners.AmpereOnFocusChangeListener;
 import net.yscs.android.stromundspannung.focuslisteners.OhmOnFocusChangeListener;
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class OhmschesGesetzSpannung extends Fragment implements
 		StructuredUiFragment {
@@ -22,9 +25,16 @@ public class OhmschesGesetzSpannung extends Fragment implements
 		View view = inflater.inflate(R.layout.calculate_spannung, container,
 				false);
 		spannungStromText = (EditText) view.findViewById(R.id.ergSpannungStrom);
+		MainActivity.setTypeFaceForViewGroup(
+				(ViewGroup) spannungStromText.getRootView(), getActivity());
 		spannungStromText
 				.setOnFocusChangeListener(new AmpereOnFocusChangeListener(
 						spannungStromText));
+
+		TextView t = (TextView) view.findViewById(R.id.textView7);
+		t.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),
+				"fonts/Roboto-Light.ttf"));
+
 		spannungWiderstandText = (EditText) view
 				.findViewById(R.id.ergSpannungWiderstand);
 		spannungWiderstandText
@@ -32,18 +42,20 @@ public class OhmschesGesetzSpannung extends Fragment implements
 						spannungWiderstandText));
 		ergSpannung = (EditText) view.findViewById(R.id.ergebnisSpannung);
 
-		Button berechnenSpannungButton = (Button) view
+		BootstrapButton berechnenSpannungBootstrapButton = (BootstrapButton) view
 				.findViewById(R.id.berechnenSpannung);
-		berechnenSpannungButton.setOnClickListener(new OnClickListener() {
+		berechnenSpannungBootstrapButton
+				.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				calculateAndDisplay();
-			}
+					@Override
+					public void onClick(View v) {
+						calculateAndDisplay();
+					}
 
-		});
+				});
 
-		Button loeschen = (Button) view.findViewById(R.id.del2);
+		BootstrapButton loeschen = (BootstrapButton) view
+				.findViewById(R.id.del2);
 		loeschen.setOnClickListener(new OnClickListener() {
 
 			@Override
