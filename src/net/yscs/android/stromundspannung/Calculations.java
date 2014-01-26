@@ -128,7 +128,6 @@ public class Calculations {
 	public static double mal2(String val1) {
 		Double d1 = Double.parseDouble(validateStringInput(val1));
 		return d1 * 2;
-
 	}
 
 	public static double calcQuerschnitt(String val1) {
