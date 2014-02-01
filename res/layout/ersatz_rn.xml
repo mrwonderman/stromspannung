@@ -56,7 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/TextView11"
-        android:drawableLeft="@android:drawable/ic_input_add"
         android:text="@string/hinzufuegen" />
 
     <TextView

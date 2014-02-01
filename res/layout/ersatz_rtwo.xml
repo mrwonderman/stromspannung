@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView3"
         android:layout_alignParentTop="true"
+        android:paddingTop="8dp"
         android:text="@string/berechnung_r2"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 

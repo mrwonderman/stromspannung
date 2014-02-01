@@ -2,8 +2,6 @@ package net.yscs.android.stromundspannung;
 
 import java.util.ArrayList;
 
-import com.beardedhen.androidbootstrap.BootstrapButton;
-
 import net.yscs.android.stromundspannung.focuslisteners.GradOnFocusChangeListener;
 import net.yscs.android.stromundspannung.focuslisteners.KelvinOnFocusChangeListener;
 import net.yscs.android.stromundspannung.focuslisteners.OhmOnFocusChangeListener;
@@ -17,9 +15,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class WiderstandsaenderungTemp extends Fragment implements
 		StructuredUiFragment {
@@ -90,10 +89,14 @@ public class WiderstandsaenderungTemp extends Fragment implements
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 
-		Button del1 = (Button) view.findViewById(R.id.temp_del_1);
-		Button del2 = (Button) view.findViewById(R.id.temp_del_2);
-		Button del3 = (Button) view.findViewById(R.id.temp_del_3);
-		Button del4 = (Button) view.findViewById(R.id.temp_del_4);
+		BootstrapButton del1 = (BootstrapButton) view
+				.findViewById(R.id.temp_del_1);
+		BootstrapButton del2 = (BootstrapButton) view
+				.findViewById(R.id.temp_del_2);
+		BootstrapButton del3 = (BootstrapButton) view
+				.findViewById(R.id.temp_del_3);
+		BootstrapButton del4 = (BootstrapButton) view
+				.findViewById(R.id.temp_del_4);
 
 		del1.setOnClickListener(new OnClickListener() {
 
