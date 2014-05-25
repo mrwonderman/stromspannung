@@ -16,3 +16,12 @@ project.properties
 .settings/org.eclipse.jdt.core.prefs
 
 .classpath
+
+build
+
+#gradle
+.gradle/
+
+#android studio
+.idea/
+*.iml
