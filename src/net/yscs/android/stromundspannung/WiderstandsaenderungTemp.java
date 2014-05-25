@@ -128,7 +128,7 @@ public class WiderstandsaenderungTemp extends Fragment implements
 		});
 
 		BootstrapButton berechnen = (BootstrapButton) view
-				.findViewById(R.id.ersatzwiderstandberechen);
+				.findViewById(R.id.berechnenersatzwiderstandberechen);
 		berechnen.setOnClickListener(new OnClickListener() {
 
 			@Override

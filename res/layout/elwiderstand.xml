@@ -136,28 +136,6 @@
         android:focusableInTouchMode="false"
         android:inputType="numberDecimal" />
 
-    <LinearLayout
-        android:id="@+id/elwider7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/elwider5" >
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/elwider_del"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="@string/loeschen"
-            fontawesometext:bb_type="danger" />
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/elwider_berechnen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/berechnen"
-            fontawesometext:bb_type="success" />
-    </LinearLayout>
-
     <Button
         android:id="@+id/mal2"
         android:layout_width="wrap_content"
@@ -176,5 +154,28 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/elwiderquer"
         android:text="@string/querschnitt_symbol" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/elwider_berechnen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/berechnen"
+        fontawesometext:bb_type="success"
+        android:layout_below="@+id/elwider5"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/elwider_del"
+        android:layout_alignBottom="@+id/elwider_del"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/elwider_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loeschen"
+        fontawesometext:bb_type="danger"
+        android:layout_below="@+id/elwider5"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="8dp" />
 
 </RelativeLayout>

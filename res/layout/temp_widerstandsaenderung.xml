@@ -173,14 +173,15 @@
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/berechnenersatzwiderstandberechen"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/del4"
         android:layout_toRightOf="@+id/del4"
         android:text="@string/berechnen"
         fontawesometext:bb_type="success"
         android:layout_alignTop="@+id/del4"
-        android:layout_marginLeft="8dp" />
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentRight="true" />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/temp_del_1"

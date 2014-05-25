@@ -92,28 +92,27 @@
         android:layout_alignParentLeft="true"
         android:text="@string/rgesamt" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/berechnen2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/berechnen"
+        bootstrapbutton:bb_type="success"
+        android:layout_below="@+id/ewider2"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/del5"
+        android:layout_toRightOf="@+id/del5"
         android:layout_marginTop="8dp"
-        android:layout_alignRight="@+id/ewider2"
-        android:layout_below="@+id/ewider2" >
+        android:layout_marginLeft="8dp" />
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/del5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="@string/loeschen"
-            bootstrapbutton:bb_type="danger"
-            bootstrapbutton:bb_icon_left="fa-heart" />
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/berechnen2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/berechnen"
-            bootstrapbutton:bb_type="success" />
-    </LinearLayout>
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/del5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loeschen"
+        bootstrapbutton:bb_type="danger"
+        android:layout_below="@+id/ewider2"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="8dp" />
 
 </RelativeLayout>
