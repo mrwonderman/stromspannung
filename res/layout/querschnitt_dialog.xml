@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/radius_eingabe"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:gravity="center_vertical"
-        android:text="@string/radius_" />
+        android:text="@string/radius_"
+        android:layout_alignTop="@+id/radius_eingabe" />
 
     <EditText
         android:id="@+id/radius_eingabe"
@@ -24,7 +24,8 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView1"
         android:ems="10"
-        android:inputType="numberDecimal" >
+        android:inputType="numberDecimal"
+        android:layout_marginTop="8dp">
 
         <requestFocus />
     </EditText>
@@ -35,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
         <Button
             android:id="@+id/abbrechen_dialog"

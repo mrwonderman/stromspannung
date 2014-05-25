@@ -39,8 +39,7 @@
         android:layout_below="@+id/addRnButton"
         android:paddingTop="8dp"
         android:text="@string/hinzugefuegte_widerstaende"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textStyle="bold" />
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
 
     <TextView
         android:id="@+id/rnns"

@@ -3,7 +3,8 @@
     style="@style/listViewHeaderItem"
     android:layout_width="match_parent"
     android:layout_height="30dp"
-    android:clickable="false" >
+    android:clickable="false"
+    android:background="@color/lvDividerColor">
 
     <View
         android:id="@+id/item_separator"
@@ -11,7 +12,7 @@
         android:layout_height="@dimen/lvDividerHeight"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
-        android:background="@color/lvHeaderDividerColor" />
+        android:background="@color/lvDividerColor" />
 
     <TextView
         android:id="@+id/lv_list_hdr"
@@ -23,7 +24,7 @@
         android:gravity="bottom|left"
         android:paddingLeft="8dp"
         android:textAllCaps="true"
-        android:textColor="@color/lvHeaderTextColor"
+        android:textColor="@android:color/white"
         android:textIsSelectable="false"
         android:textStyle="normal|bold" />
 
