@@ -1,0 +1,2 @@
+include ':AndroidBootstrap'
+project(':AndroidBootstrap').projectDir = new File('libraries/Android-Bootstrap/AndroidBootstrap')
