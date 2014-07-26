@@ -39,8 +39,7 @@
         android:layout_below="@+id/addRnButton"
         android:paddingTop="8dp"
         android:text="@string/hinzugefuegte_widerstaende"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textStyle="bold" />
+        android:textAppearance="?android:attr/textAppearanceSmall"/>
 
     <TextView
         android:id="@+id/rnns"
@@ -102,25 +101,25 @@
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/berechnen3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/ewider3"
-        android:layout_below="@+id/ewider3"
         android:layout_toRightOf="@+id/del6"
-        android:layout_marginTop="8dp"
         android:text="@string/berechnen"
-        fontawesometext:bb_type="success" />
+        fontawesometext:bb_type="success"
+        android:layout_below="@+id/ewider3"
+        android:layout_alignBottom="@+id/del6"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp" />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/del6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/berechnen3"
-        android:layout_alignBottom="@+id/berechnen3"
-        android:layout_marginTop="8dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="8dp"
         android:text="@string/loeschen"
-        fontawesometext:bb_type="danger" />
+        fontawesometext:bb_type="danger"
+        android:layout_below="@+id/ewider3"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="8dp" />
 
 </RelativeLayout>

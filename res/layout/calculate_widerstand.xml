@@ -98,28 +98,27 @@
         android:layout_alignLeft="@+id/textView2"
         android:text="@string/ergebnis" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/del3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/ergebnisWiderstand"
+        android:text="@string/loeschen"
+        fontawesometext:bb_type="danger"
         android:layout_below="@+id/ergebnisWiderstand"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="8dp" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/berechnenWiderstand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/berechnen"
+        android:layout_alignParentRight="true"
+        fontawesometext:bb_type="success"
+        android:layout_alignBottom="@+id/del3"
+        android:layout_below="@+id/textView3"
+        android:layout_toRightOf="@+id/del3"
         android:layout_marginTop="8dp"
-        android:paddingBottom="8dp" >
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/del3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="@string/loeschen"
-            fontawesometext:bb_type="danger" />
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/berechnenWiderstand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/berechnen"
-            fontawesometext:bb_type="success" />
-    </LinearLayout>
+        android:layout_marginLeft="8dp" />
 
 </RelativeLayout>

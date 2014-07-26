@@ -1,21 +1,21 @@
 package net.yscs.android.stromundspannung.model;
 
 public class Werkstoff {
-	String Werkstoff;
+	String werkstoff;
 	double widerstand;
 
 	public Werkstoff(String werkstoff, double widerstand) {
 		super();
-		Werkstoff = werkstoff;
+		this.werkstoff = werkstoff;
 		this.widerstand = widerstand;
 	}
 
 	public String getWerkstoff() {
-		return Werkstoff;
+		return werkstoff;
 	}
 
 	public void setWerkstoff(String werkstoff) {
-		Werkstoff = werkstoff;
+		werkstoff = werkstoff;
 	}
 
 	public double getWiderstand() {

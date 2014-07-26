@@ -171,27 +171,17 @@
         android:ems="10"
         android:inputType="numberDecimal" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/berechnenersatzwiderstandberechen"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/betriebs_widerstand" >
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/del4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:text="@string/loeschen"
-            fontawesometext:bb_type="danger" />
-
-        <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/ersatzwiderstandberechen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/berechnen"
-            fontawesometext:bb_type="success" />
-    </LinearLayout>
+        android:layout_alignBottom="@+id/del4"
+        android:layout_toRightOf="@+id/del4"
+        android:text="@string/berechnen"
+        fontawesometext:bb_type="success"
+        android:layout_alignTop="@+id/del4"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentRight="true" />
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/temp_del_1"
@@ -251,5 +241,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/material"
         android:layout_toRightOf="@+id/material" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/del4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loeschen"
+        fontawesometext:bb_type="danger"
+        android:layout_below="@+id/betriebs_widerstand"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="8dp" />
 
 </RelativeLayout>

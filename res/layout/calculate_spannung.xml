@@ -76,14 +76,14 @@
 
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/berechnenSpannung"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/del2"
         android:layout_alignBottom="@+id/del2"
-        android:layout_marginTop="8dp"
         android:layout_toRightOf="@+id/del2"
         android:text="@string/berechnen"
-        fontawesometext:bb_type="success" />
+        android:layout_alignParentRight="true"
+        fontawesometext:bb_type="success"
+        android:layout_alignTop="@+id/del2" />
 
     <EditText
         android:id="@+id/ergSpannungWiderstand"
