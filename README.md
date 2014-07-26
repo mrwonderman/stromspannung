@@ -1,6 +1,6 @@
 Current and Voltage (Strom und Spannung)
 =============
-![square image](https://googledrive.com/host/0BwESwPCuXtw7YzdZajJMYUJqTjg/header.jpg)
+![square image](https://lh5.googleusercontent.com/gUcGUPmUQUYJa9gVgqnDLZkgLmlTyulR76f4LH_NDDRDfHLQ5Fo_9YxDuQYkgoyHmsSugNFk6r8)
 
 This app helps you with calculations of current, voltage and resistance.
 
