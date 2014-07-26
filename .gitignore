@@ -25,3 +25,6 @@ build
 #android studio
 .idea/
 *.iml
+local.properties
+
+libraries/Android-Bootstrap/
